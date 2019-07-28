@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    ioc入门-->
+    <bean id="user" scope="prototype" class="edu.ustc.SpringStart.bean.User"/>
+
+<!--    使用静态工厂创建对象-->
+    <bean id="bean" class="edu.ustc.SpringStart.bean.BeanFactory" factory-method="getBean"/>
+
+<!--    使用实例工厂创建对象-->
+<!--    先创建工厂对象-->
+    <bean id="bean2Factory" class="edu.ustc.SpringStart.bean.Bean2Factory"/>
+    <bean id="bean2" factory-bean="bean2Factory" factory-method="getBean2"/>
+
+<!--    使用有参数构造注入属性-->
+    <bean id="user2" class="edu.ustc.SpringStart.bean.User">
+        <constructor-arg name="username" value="小王"/>
+    </bean>
+
+<!--    使用set方法注入属性-->
+    <bean id="user3" class="edu.ustc.SpringStart.bean.User">
+        <property name="username" value="小李"/>
+    </bean>
+</beans>
