@@ -25,14 +25,43 @@
     <!--        <property name="username" value="小李"/>-->
     <!--    </bean>-->
 
-        注入对象属性类型
-        <bean id="userDao" class="edu.ustc.SpringStart.dao.UserDao"/>
-<!--        <bean id="userService" class="edu.ustc.SpringStart.service.UserService">-->
-<!--            <property name="userDao" ref="userDao"/>-->
-<!--        </bean>-->
+    <!--        注入对象属性类型-->
+    <bean id="userDao" class="edu.ustc.SpringStart.dao.UserDao">
+        <!--        数组-->
+        <property name="arrs">
+            <list>
+                <value>小王</value>
+                <value>小李</value>
+            </list>
+        </property>
+        <!--        list-->
+        <property name="list">
+            <list>
+                <value>大王</value>
+                <value>大李</value>
+            </list>
+        </property>
+        <!--        map-->
+        <property name="map">
+            <map>
+                <entry key="aa" value="王"/>
+                <entry key="bb" value="李"/>
+            </map>
+        </property>
+        <!--        properties-->
+        <property name="properties">
+            <props>
+                <prop key="cc">王</prop>
+                <prop key="dd">李</prop>
+            </props>
+        </property>
+    </bean>
+    <!--        <bean id="userService" class="edu.ustc.SpringStart.service.UserService">-->
+    <!--            <property name="userDao" ref="userDao"/>-->
+    <!--        </bean>-->
 
-        <bean id="userService" class="edu.ustc.SpringStart.service.UserService" p:userDao-ref="userDao"/>
-        <!--    p名称空间注入-->
-        <bean id="person" class="edu.ustc.SpringStart.dao.PersonDao" p:pname="xiaoming"/>
+    <bean id="userService" class="edu.ustc.SpringStart.service.UserService" p:userDao-ref="userDao"/>
+    <!--    p名称空间注入-->
+    <bean id="person" class="edu.ustc.SpringStart.dao.PersonDao" p:pname="xiaoming"/>
 
 </beans>
