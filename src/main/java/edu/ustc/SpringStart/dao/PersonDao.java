@@ -1,14 +1,13 @@
 package edu.ustc.SpringStart.dao;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component(value = "personDao")
+@Scope(value = "prototype")
 public class PersonDao {
 
-    private String pname;
-
     public void call() {
-        System.out.println(pname);
-    }
-
-    public void setPname(String pname) {
-        this.pname = pname;
+        System.out.println("personDao");
     }
 }

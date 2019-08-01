@@ -1,5 +1,8 @@
 package edu.ustc.SpringStart.dao;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -26,11 +29,15 @@ public class UserDao {
         this.properties = properties;
     }
 
-    public void call() {
-        System.out.println("dao...");
+    public void callList() {
+        call();
         System.out.println(arrs.toString());
         System.out.println(list);
         System.out.println(map);
         System.out.println(properties);
+    }
+
+    public void call() {
+        System.out.println("dao...");
     }
 }

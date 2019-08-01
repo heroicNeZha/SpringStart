@@ -3,6 +3,7 @@ package edu.ustc.SpringStart.service;
 import edu.ustc.SpringStart.dao.UserDao;
 
 public class UserService {
+
     private UserDao userDao;
 
     public void call() {
