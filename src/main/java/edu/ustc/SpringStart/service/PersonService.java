@@ -19,7 +19,7 @@ public class PersonService {
     private PersonDao personDao;
 
     public void call() {
-//        personDao.call();
+        personDao.call();
         System.out.println("personService...");
     }
 }

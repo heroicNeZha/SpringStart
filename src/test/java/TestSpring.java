@@ -1,4 +1,3 @@
-import edu.ustc.SpringStart.dao.UserDao;
 import edu.ustc.SpringStart.service.PersonService;
 import edu.ustc.SpringStart.service.UserService;
 import org.junit.Test;
