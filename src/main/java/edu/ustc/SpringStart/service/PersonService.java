@@ -1,12 +1,11 @@
 package edu.ustc.SpringStart.service;
 
 import edu.ustc.SpringStart.dao.PersonDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.aspectj.lang.annotation.Pointcut;
 
 import javax.annotation.Resource;
 
-@Service(value = "personService")
+//@Service(value = "personService")
 public class PersonService {
 
 //    //自动装配
@@ -17,7 +16,7 @@ public class PersonService {
     //name属性是创建dao对象的value值
     @Resource(name = "personDao")
     private PersonDao personDao;
-
+    @Pointcut
     public void call() {
         personDao.call();
         System.out.println("personService...");

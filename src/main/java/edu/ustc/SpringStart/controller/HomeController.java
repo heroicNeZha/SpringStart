@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-    private ApplicationContext factory = new ClassPathXmlApplicationContext("spring/spring-aop.xml");
-    private ApplicationContext factory2 = new ClassPathXmlApplicationContext("spring/AnnoContext.xml");
 
     @RequestMapping("index")
     public String index() {
+        ApplicationContext factory = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
         PersonService personService = (PersonService) factory.getBean("personService");
         personService.call();
         logger.info("the first jsp pages");
