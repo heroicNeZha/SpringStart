@@ -15,29 +15,46 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/context ">
 
-    <!--    &lt;!&ndash;    ioc入门&ndash;&gt;-->
-    <!--    <bean id="user" scope="prototype" class="edu.ustc.SpringStart.bean.User"/>-->
-
-    <!--    &lt;!&ndash;    使用静态工厂创建对象&ndash;&gt;-->
-    <!--    <bean id="bean" class="edu.ustc.SpringStart.bean.BeanFactory" factory-method="getBean"/>-->
-
-    <!--    &lt;!&ndash;    使用实例工厂创建对象&ndash;&gt;-->
-    <!--    &lt;!&ndash;    先创建工厂对象&ndash;&gt;-->
-    <!--    <bean id="bean2Factory" class="edu.ustc.SpringStart.bean.Bean2Factory"/>-->
-    <!--    <bean id="bean2" factory-bean="bean2Factory" factory-method="getBean2"/>-->
-
-    <!--    &lt;!&ndash;    使用有参数构造注入属性&ndash;&gt;-->
-    <!--    <bean id="user2" class="edu.ustc.SpringStart.bean.User">-->
-    <!--        <constructor-arg name="username" value="小王"/>-->
-    <!--    </bean>-->
-
-    <!--    &lt;!&ndash;    使用set方法注入属性&ndash;&gt;-->
-    <!--    <bean id="user3" class="edu.ustc.SpringStart.bean.User">-->
-    <!--        <property name="username" value="小李"/>-->
-    <!--    </bean>-->
-
     <!--    开启注解扫描-->
     <context:component-scan base-package="edu.ustc.SpringStart.dao"/>
+
+    <!-- 配置mybatis, 绑定c3p0-->
+    <!--    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+    <!--        <property name="dataSource" ref="dataSource"/>-->
+    <!--        <property name="configLocation" value="classpath:mybatis-config.xml"/>-->
+    <!--        <property name="mapperLocations">-->
+    <!--            <list>-->
+    <!--                <value>classpath:mapper/*.xml</value>-->
+    <!--            </list>-->
+    <!--        </property>-->
+    <!--    </bean>-->
+
+    <!-- 扫描生成所有dao层 -->
+    <!--    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+    <!--        <property name="basePackage" value="edu.ustc.SpringStart.dao"/>-->
+    <!--        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
+    <!--    </bean>-->
+
+    <!-- 配置c3p0 -->
+    <!-- 连接池 -->
+    <!--    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
+    <!--        <property name="driverClass" value="com.mysql.jdbc.Driver"/>-->
+    <!--        <property name="jdbcUrl" value="jdbc:mysql://localhost/mybatis_start?characterEncoding=utf8&amp;serverTimezone=UTC"/>-->
+    <!--        <property name="user" value="root"/>-->
+    <!--        <property name="password" value="123456"/>-->
+    <!--        <property name="minPoolSize" value="1"/>-->
+    <!--        <property name="maxPoolSize" value="5"/>-->
+    <!--        <property name="initialPoolSize" value="1"/>-->
+    <!--        <property name="acquireIncrement" value="1"/>-->
+    <!--    </bean>-->
+
+    <!-- 配置事务管理器 -->
+    <!--    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+    <!--        <property name="dataSource" ref="dataSource"/>-->
+    <!--    </bean>-->
+
+    <!-- 使用注解来控制事务 -->
+    <!--    <tx:annotation-driven transaction-manager="transactionManager"/>-->
 
     <!--        注入对象属性类型-->
     <bean id="userDao" class="edu.ustc.SpringStart.dao.UserDao">
@@ -71,10 +88,6 @@
         </property>
     </bean>
     <bean id="personDao" class="edu.ustc.SpringStart.dao.PersonDao"/>
-    <!--    通过属性进行对象赋值-->
-    <!--        <bean id="userService" class="edu.ustc.SpringStart.service.UserService">-->
-    <!--            <property name="userDao" ref="userDao"/>-->
-    <!--        </bean>-->
 
     <!--    通过p标签对象赋值-->
     <bean id="userService" class="edu.ustc.SpringStart.service.UserService" p:userDao-ref="userDao"/>
@@ -92,42 +105,4 @@
     <!--            <aop:around method="aroundCall" pointcut-ref="pointcut1"/>-->
     <!--        </aop:aspect>-->
     <!--    </aop:config>-->
-
-    <!-- 配置mybatis, 绑定c3p0-->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="configLocation" value="classpath:mybatis-config.xml"/>
-        <property name="mapperLocations">
-            <list>
-                <value>classpath:mapper/*.xml</value>
-            </list>
-        </property>
-    </bean>
-
-    <!-- 扫描生成所有dao层 -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="edu.ustc.SpringStart.dao"/>
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-    </bean>
-
-    <!-- 配置c3p0 -->
-    <!-- 连接池 -->
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://localhost/person?characterEncoding=utf8&amp;serverTimezone=UTC"/>
-        <property name="user" value="root"/>
-        <property name="password" value="123456"/>
-        <property name="minPoolSize" value="1"/>
-        <property name="maxPoolSize" value="5"/>
-        <property name="initialPoolSize" value="1"/>
-        <property name="acquireIncrement" value="1"/>
-    </bean>
-
-    <!-- 配置事务管理器 -->
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"></property>
-    </bean>
-
-    <!-- 使用注解来控制事务 -->
-    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
 </beans>

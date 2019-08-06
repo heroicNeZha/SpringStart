@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="edu.ustc.SpringStart.dao.Person">
-    <select id="queryPersonById" resultType="Person" parameterType="int">
+    <select id="queryPersonById" resultType="edu.ustc.SpringStart.dao.Person" parameterType="int">
         select * from person where id = #{id}
     </select>
 </mapper>
