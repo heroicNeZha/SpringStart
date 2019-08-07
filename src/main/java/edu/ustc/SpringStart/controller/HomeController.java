@@ -1,6 +1,5 @@
 package edu.ustc.SpringStart.controller;
 
-import edu.ustc.SpringStart.service.PersonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -15,8 +14,8 @@ public class HomeController {
     @RequestMapping("index")
     public String index() {
         ApplicationContext factory = new ClassPathXmlApplicationContext("applicationContext.xml");
-        PersonService personService = (PersonService) factory.getBean("personService");
-        personService.call();
+//        PersonService personService = (PersonService) factory.getBean("personService");
+//        personService.call();
         logger.info("the first jsp pages");
         return "index";
     }

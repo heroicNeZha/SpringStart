@@ -1,4 +1,4 @@
-package edu.ustc.SpringStart.dao;
+package edu.ustc.SpringStart.POJO;
 
 public class Person {
     private int id;

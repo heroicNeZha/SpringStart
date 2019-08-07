@@ -42,9 +42,9 @@
 2019-08-06 21:20:23,282 [main] [org.apache.ibatis.transaction.jdbc.JdbcTransaction] [DEBUG] - Opening JDBC Connection
 2019-08-06 21:20:23,845 [main] [org.apache.ibatis.datasource.pooled.PooledDataSource] [DEBUG] - Created connection 937744315.
 2019-08-06 21:20:23,846 [main] [org.apache.ibatis.transaction.jdbc.JdbcTransaction] [DEBUG] - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@37e4d7bb]
-2019-08-06 21:20:23,850 [main] [edu.ustc.SpringStart.dao.Person.queryPersonById] [DEBUG] - ==>  Preparing: select * from person where id = ? 
-2019-08-06 21:20:23,896 [main] [edu.ustc.SpringStart.dao.Person.queryPersonById] [DEBUG] - ==> Parameters: 1(Integer)
-2019-08-06 21:20:23,932 [main] [edu.ustc.SpringStart.dao.Person.queryPersonById] [DEBUG] - <==      Total: 1
+2019-08-06 21:20:23,850 [main] [edu.ustc.SpringStart.POJO.Person.queryPersonById] [DEBUG] - ==>  Preparing: select * from person where id = ?
+2019-08-06 21:20:23,896 [main] [edu.ustc.SpringStart.POJO.Person.queryPersonById] [DEBUG] - ==> Parameters: 1(Integer)
+2019-08-06 21:20:23,932 [main] [edu.ustc.SpringStart.POJO.Person.queryPersonById] [DEBUG] - <==      Total: 1
 2019-08-06 21:20:23,935 [main] [org.apache.ibatis.transaction.jdbc.JdbcTransaction] [DEBUG] - Resetting autocommit to true on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@37e4d7bb]
 2019-08-06 21:20:23,936 [main] [org.apache.ibatis.transaction.jdbc.JdbcTransaction] [DEBUG] - Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@37e4d7bb]
 2019-08-06 21:20:23,937 [main] [org.apache.ibatis.datasource.pooled.PooledDataSource] [DEBUG] - Returned connection 937744315 to pool.
@@ -56,9 +56,9 @@
 2019-08-06 21:23:13,550 [main] [org.apache.ibatis.transaction.jdbc.JdbcTransaction] [DEBUG] - Opening JDBC Connection
 2019-08-06 21:23:14,097 [main] [org.apache.ibatis.datasource.pooled.PooledDataSource] [DEBUG] - Created connection 286649365.
 2019-08-06 21:23:14,098 [main] [org.apache.ibatis.transaction.jdbc.JdbcTransaction] [DEBUG] - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@1115ec15]
-2019-08-06 21:23:14,103 [main] [edu.ustc.SpringStart.dao.Person.queryPersonById] [DEBUG] - ==>  Preparing: select * from person where id = ? 
-2019-08-06 21:23:14,153 [main] [edu.ustc.SpringStart.dao.Person.queryPersonById] [DEBUG] - ==> Parameters: 1(Integer)
-2019-08-06 21:23:14,195 [main] [edu.ustc.SpringStart.dao.Person.queryPersonById] [DEBUG] - <==      Total: 1
+2019-08-06 21:23:14,103 [main] [edu.ustc.SpringStart.POJO.Person.queryPersonById] [DEBUG] - ==>  Preparing: select * from person where id = ?
+2019-08-06 21:23:14,153 [main] [edu.ustc.SpringStart.POJO.Person.queryPersonById] [DEBUG] - ==> Parameters: 1(Integer)
+2019-08-06 21:23:14,195 [main] [edu.ustc.SpringStart.POJO.Person.queryPersonById] [DEBUG] - <==      Total: 1
 2019-08-06 21:23:14,199 [main] [org.apache.ibatis.transaction.jdbc.JdbcTransaction] [DEBUG] - Resetting autocommit to true on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@1115ec15]
 2019-08-06 21:23:14,200 [main] [org.apache.ibatis.transaction.jdbc.JdbcTransaction] [DEBUG] - Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@1115ec15]
 2019-08-06 21:23:14,200 [main] [org.apache.ibatis.datasource.pooled.PooledDataSource] [DEBUG] - Returned connection 286649365 to pool.

@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="edu.ustc.SpringStart.dao.Person">
-    <select id="queryPersonById" resultType="edu.ustc.SpringStart.dao.Person" parameterType="int">
+<mapper namespace="edu.ustc.SpringStart.POJO.Person">
+    <select id="queryPersonById" resultType="edu.ustc.SpringStart.POJO.Person" parameterType="int">
         select * from person where id = #{id}
     </select>
 </mapper>
