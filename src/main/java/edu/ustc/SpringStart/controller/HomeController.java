@@ -14,7 +14,7 @@ public class HomeController {
     @RequestMapping("index")
     public String index() {
         ApplicationContext factory = new ClassPathXmlApplicationContext("applicationContext.xml");
-//        PersonService personService = (PersonService) factory.getBean("personService");
+//        PersonServiceImpl personService = (PersonServiceImpl) factory.getBean("personService");
 //        personService.call();
         logger.info("the first jsp pages");
         return "index";

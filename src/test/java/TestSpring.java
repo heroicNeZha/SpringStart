@@ -16,14 +16,14 @@ public class TestSpring {
 //    public void testAnno() {
 //        //通过注解方式创建对象
 //        ApplicationContext factory = new ClassPathXmlApplicationContext("spring/AnnoContext.xml");
-//        PersonService personService = (PersonService) factory.getBean("personService");
+//        PersonServiceImpl personService = (PersonServiceImpl) factory.getBean("personService");
 //        personService.call();
 //    }
 //
 //    @Test
 //    public void testAOP() {
 //        ApplicationContext factory = new ClassPathXmlApplicationContext("spring/spring-aop.xml");
-//        PersonService personService = (PersonService) factory.getBean("personService");
+//        PersonServiceImpl personService = (PersonServiceImpl) factory.getBean("personService");
 //        personService.call();
 //    }
 }
