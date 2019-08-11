@@ -13,7 +13,7 @@ public class TestMyBatis {
         Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        String statement = "edu.ustc.SpringStart.POJO.Person.queryPersonById";
+        String statement = "mapper.personMapper.selectPersonById";
         Person person = sqlSession.selectOne(statement,1);
         System.out.println(person);
         sqlSession.close();

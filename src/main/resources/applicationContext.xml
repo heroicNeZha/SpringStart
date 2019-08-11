@@ -55,7 +55,7 @@
     <!-- 使用注解来控制事务 -->
     <!--    <tx:annotation-driven transaction-manager="transactionManager"/>-->
 
-<!--    <bean class="edu.ustc.SpringStart.dao.impl.PersonDaoImpl" id="personDao"></bean>-->
+    <bean class="edu.ustc.SpringStart.dao.impl.PersonDaoImpl" id="personDao"></bean>
 
 
 </beans>
