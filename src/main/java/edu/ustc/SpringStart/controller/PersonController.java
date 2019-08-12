@@ -1,5 +1,6 @@
 package edu.ustc.SpringStart.controller;
 
+import edu.ustc.SpringStart.POJO.Person;
 import edu.ustc.SpringStart.service.IPersonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 
@@ -28,15 +30,17 @@ public class PersonController {
     }
 
     @RequestMapping("person")
-    public String person(String name) {
+    public ModelAndView person(String name) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
         try {
-            System.out.println(name);
-            System.out.println(personService.selectPersonByName(name));
+            Person person = personService.selectPersonByName(name);
+            modelAndView.addObject(person);
         } catch (Exception e) {
             System.out.println("PersonController:");
             e.printStackTrace();
         }
-        return "index";
+        return modelAndView;
     }
 
 }
