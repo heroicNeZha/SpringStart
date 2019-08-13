@@ -15,7 +15,7 @@
        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
     <!--    开启注解扫描-->
-    <context:component-scan base-package="edu.ustc.SpringStart.service"/>
+    <context:component-scan base-package="edu.ustc.SpringStart.person.service"/>
 
     <!-- 配置mybatis, 绑定c3p0-->
     <!--    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
@@ -30,7 +30,7 @@
 
     <!-- 扫描生成所有dao层 -->
     <!--    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
-    <!--        <property name="basePackage" value="edu.ustc.SpringStart.dao"/>-->
+    <!--        <property name="basePackage" value="edu.ustc.SpringStart.person.dao"/>-->
     <!--        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
     <!--    </bean>-->
 
@@ -55,7 +55,7 @@
     <!-- 使用注解来控制事务 -->
     <!--    <tx:annotation-driven transaction-manager="transactionManager"/>-->
 
-    <bean class="edu.ustc.SpringStart.dao.impl.PersonDaoImpl" id="personDao"></bean>
+    <bean class="edu.ustc.SpringStart.person.dao.impl.PersonDaoImpl" id="personDao"></bean>
 
 
 </beans>

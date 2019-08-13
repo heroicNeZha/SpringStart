@@ -1,9 +1,8 @@
-package edu.ustc.SpringStart.service.impl;
+package edu.ustc.SpringStart.person.service.impl;
 
-import edu.ustc.SpringStart.POJO.Person;
-import edu.ustc.SpringStart.dao.IPersonDao;
-import edu.ustc.SpringStart.dao.impl.PersonDaoImpl;
-import edu.ustc.SpringStart.service.IPersonService;
+import edu.ustc.SpringStart.person.POJO.Person;
+import edu.ustc.SpringStart.person.dao.IPersonDao;
+import edu.ustc.SpringStart.person.service.IPersonService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

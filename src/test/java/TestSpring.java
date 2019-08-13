@@ -1,4 +1,4 @@
-import edu.ustc.SpringStart.service.impl.PersonServiceImpl;
+import edu.ustc.SpringStart.person.service.impl.PersonServiceImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

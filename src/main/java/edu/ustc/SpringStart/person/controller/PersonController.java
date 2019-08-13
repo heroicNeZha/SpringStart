@@ -1,10 +1,9 @@
-package edu.ustc.SpringStart.controller;
+package edu.ustc.SpringStart.person.controller;
 
-import edu.ustc.SpringStart.POJO.Person;
-import edu.ustc.SpringStart.service.IPersonService;
+import edu.ustc.SpringStart.person.POJO.Person;
+import edu.ustc.SpringStart.person.service.IPersonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -35,7 +34,7 @@ public class PersonController {
         modelAndView.setViewName("index");
         try {
             Person person = personService.selectPersonByName(name);
-            modelAndView.addObject(person);
+            modelAndView.addObject("person",person);
         } catch (Exception e) {
             System.out.println("PersonController:");
             e.printStackTrace();

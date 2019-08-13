@@ -1,7 +1,7 @@
-package edu.ustc.SpringStart.service;
+package edu.ustc.SpringStart.person.service;
 
 
-import edu.ustc.SpringStart.POJO.Person;
+import edu.ustc.SpringStart.person.POJO.Person;
 
 import java.util.List;
 

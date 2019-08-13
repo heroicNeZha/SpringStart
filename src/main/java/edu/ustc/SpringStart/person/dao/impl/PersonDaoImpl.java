@@ -1,7 +1,7 @@
-package edu.ustc.SpringStart.dao.impl;
+package edu.ustc.SpringStart.person.dao.impl;
 
-import edu.ustc.SpringStart.POJO.Person;
-import edu.ustc.SpringStart.dao.IPersonDao;
+import edu.ustc.SpringStart.person.POJO.Person;
+import edu.ustc.SpringStart.person.dao.IPersonDao;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

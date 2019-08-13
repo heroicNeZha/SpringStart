@@ -1,4 +1,4 @@
-import edu.ustc.SpringStart.POJO.Person;
+import edu.ustc.SpringStart.person.POJO.Person;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.*;
 import org.junit.Test;
