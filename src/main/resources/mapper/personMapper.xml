@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<!-- namespace：该映射文件唯一标识-->
 <mapper namespace="mapper.personMapper">
     <select id="selectPersonById" resultType="edu.ustc.SpringStart.person.POJO.Person" parameterType="int">
         select *
@@ -15,4 +16,20 @@
         from person
         where name = #{name}
     </select>
+
+    <insert id="addStudent" parameterType="edu.ustc.SpringStart.person.POJO.Person">
+        insert into mybatis_start.person(name, age) value (#{name}, #{age})
+    </insert>
+
+    <update id="updateStudentById" parameterType="edu.ustc.SpringStart.person.POJO.Person">
+        update mybatis_start.person
+        set name = #{},
+            age  = #{}
+    </update>
+
+    <insert id="deleteStudentById" parameterType="int">
+        delete
+        FROM mybatis_start.person
+        where id = #{id}
+    </insert>
 </mapper>

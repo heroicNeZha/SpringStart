@@ -31,7 +31,7 @@ public class PersonController {
     @RequestMapping("person")
     public ModelAndView person(String name) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index");
+        modelAndView.setViewName("person/list");
         try {
             Person person = personService.selectPersonByName(name);
             modelAndView.addObject("person",person);

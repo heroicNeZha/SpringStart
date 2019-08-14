@@ -29,8 +29,20 @@
     <!--    </plugins>-->
 
     <environments default="development">
+        <!-- 可以通过修改build参数指定数据库 -->
         <environment id="development">
+            <!--
+            事务提交方式
+            JDBC：利用JDBC方式处理事务（commit rollback close）
+            MANAGED：将事务交由其他组件去托管（spring jobss），默认会关闭连接
+            -->
             <transactionManager type="JDBC"/>
+            <!--
+            数据源类型
+            UNPOOLED：传统JDBC模式，需要打开关闭数据库
+            POOLED：使用数据库连接池
+            JNDI：
+            -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url"
