@@ -8,19 +8,19 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
-@Service("personService")
+@Service(value = "personService")
 public class PersonServiceImpl implements IPersonService {
 
     @Resource(name = "personDao")
     private IPersonDao personDao;
 
     @Override
-    public List<Person> show() throws Exception {
-        return null;
+    public List<Person> queryAll() throws Exception {
+        return personDao.queryAll();
     }
 
     @Override
-    public Person selectPersonByName(String name) throws Exception {
-        return personDao.selectPersonByName(name);
+    public Person queryPersonByName(String name) throws Exception {
+        return personDao.queryPersonByName(name);
     }
 }

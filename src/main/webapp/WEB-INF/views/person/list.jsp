@@ -9,27 +9,26 @@
     <title>Person Test</title>
 
     <!-- Bootstrap -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/index.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/index.css" rel="stylesheet">
+    <script src="../js/index.js"></script>
+    <script src="../js/gen_list_icon.js"></script>
 </header>
 <body style="background: #f1f1f1;">
 <script type="text/javascript">
-    <%--function initHolidayEdit(oid) {--%>
-    <%--    var url = "${ctxPath }sys/holiday/init.do";--%>
-    <%--    var message;--%>
-    <%--    if (oid) {--%>
-    <%--        message = "节假日信息编辑"--%>
-    <%--        url += "?oid=" + oid;--%>
-    <%--    } else {--%>
-    <%--        message = "节假日信息新增"--%>
-    <%--    }--%>
-    <%--    var diag = openDialog(message, 900, 250, url, function (oid, name) {--%>
-    <%--        diag.close();--%>
-    <%--        if (oid != "close") {--%>
-    <%--            nextPage('${page.pageNumber }');--%>
-    <%--        }--%>
-    <%--    });--%>
-    <%--}--%>
+    function initHolidayEdit(oid) {
+        var url = "person/init";
+        var message;
+        if (oid) {
+            message = "编辑Person";
+            url += "?id=" + oid;
+        } else {
+            message = "新增Person";
+        }
+        var diag = openDialog(message, 900, 250, url, function (oid, name) {
+            diag.close();
+        });
+    }
 
     <%--function deleteHoliday(oid) {--%>
     <%--    Dialog.confirm('你确定要删除吗？', function () {--%>
@@ -55,7 +54,7 @@
 <div class="nav_information">
     <div class="select_area_cont">
         <div class="select_exist_list">
-            <form class="form-horizontal" role="form" action="" id="queryForm" name="queryForm" method="get">
+            <form class="form-horizontal" role="form" action="/person/search" id="queryForm" name="queryForm" method="get">
                 <div class="form-group col-md-9 col-sm-8">
                     <div class=" col-lg-4 col-md-6 col-sm-6">
                         <label class="control-label" for="name">姓名</label>
@@ -83,13 +82,13 @@
                     <th width="30%">姓名</th>
                     <th width="30%">性别</th>
                 </tr>
-                <%--            <c:forEach items="${page.datas}" var="holiday" varStatus="sta">--%>
-                <tr oid="<c:out value='${person.id }' />">
-                    <td title="<c:out value='${person.id }' />"><c:out value='${person.id }'/></td>
-                    <td title="<c:out value='${person.name }'/> "><c:out value='${person.name }'/></td>
-                    <td title="<c:out value='${person.age}'/>"><c:out value='${person.age}'/></td>
-                </tr>
-                <%--            </c:forEach>--%>
+                <c:forEach items="${people}" var="person" varStatus="status">
+                    <tr oid="<c:out value='${person.id }' />">
+                        <td title="<c:out value='${status.count }'/>"><c:out value='${status.count }'/></td>
+                        <td title="<c:out value='${person.name }'/> "><a href="/person/search?name=${person.name }"><c:out value='${person.name }'/></a></td>
+                        <td title="<c:out value='${person.age }'/>"><c:out value='${person.age }'/></td>
+                    </tr>
+                </c:forEach>
             </table>
             <!--分页-->
         </div>

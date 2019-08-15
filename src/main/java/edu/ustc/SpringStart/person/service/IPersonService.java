@@ -6,8 +6,8 @@ import edu.ustc.SpringStart.person.POJO.Person;
 import java.util.List;
 
 public interface IPersonService {
-    List<Person> show() throws Exception;
+    List<Person> queryAll() throws Exception;
 
-    Person selectPersonByName(String name) throws Exception;
+    Person queryPersonByName(String name) throws Exception;
 }
 

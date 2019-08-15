@@ -11,15 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
+@RequestMapping(value = "/person")
 public class PersonController {
     private static final Logger logger = LoggerFactory.getLogger(PersonController.class);
 
     @Resource(name = "personService")
     private IPersonService personService;
 
-    @RequestMapping("index")
+    @RequestMapping("/index")
     public String index() {
         ApplicationContext factory = new ClassPathXmlApplicationContext("applicationContext.xml");
 //        PersonServiceImpl personService = (PersonServiceImpl) factory.getBean("personService");
@@ -28,13 +31,29 @@ public class PersonController {
         return "index";
     }
 
-    @RequestMapping("person")
-    public ModelAndView person(String name) {
+    @RequestMapping("/")
+    public ModelAndView person() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("person/list");
         try {
-            Person person = personService.selectPersonByName(name);
-            modelAndView.addObject("person",person);
+            List<Person> people = personService.queryAll();
+            modelAndView.addObject("people", people);
+        } catch (Exception e) {
+            System.out.println("PersonController:");
+            e.printStackTrace();
+        }
+        return modelAndView;
+    }
+
+    @RequestMapping("/search")
+    public ModelAndView search(String name) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("person/list");
+        try {
+            Person person = personService.queryPersonByName(name);
+            List<Person> people = new ArrayList<>();
+            people.add(person);
+            modelAndView.addObject("people", people);
         } catch (Exception e) {
             System.out.println("PersonController:");
             e.printStackTrace();

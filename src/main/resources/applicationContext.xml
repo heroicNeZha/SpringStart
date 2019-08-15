@@ -56,6 +56,4 @@
     <!--    <tx:annotation-driven transaction-manager="transactionManager"/>-->
 
     <bean class="edu.ustc.SpringStart.person.dao.impl.PersonDaoImpl" id="personDao"></bean>
-
-
 </beans>

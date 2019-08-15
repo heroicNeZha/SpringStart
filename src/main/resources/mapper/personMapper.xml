@@ -5,31 +5,38 @@
 
 <!-- namespace：该映射文件唯一标识-->
 <mapper namespace="mapper.personMapper">
-    <select id="selectPersonById" resultType="edu.ustc.SpringStart.person.POJO.Person" parameterType="int">
+    <select id="queryPersonById" resultType="edu.ustc.SpringStart.person.POJO.Person" parameterType="int">
         select *
         from person
         where id = #{id}
     </select>
 
-    <select id="selectPersonByName" resultType="edu.ustc.SpringStart.person.POJO.Person" parameterType="String">
+    <select id="queryPersonByName" resultType="edu.ustc.SpringStart.person.POJO.Person" parameterType="String">
         select *
         from person
         where name = #{name}
     </select>
 
-    <insert id="addStudent" parameterType="edu.ustc.SpringStart.person.POJO.Person">
-        insert into mybatis_start.person(name, age) value (#{name}, #{age})
+    <select id="queryAll" resultType="edu.ustc.SpringStart.person.POJO.Person">
+        select *
+        from person;
+    </select>
+
+    <insert id="addPerson" parameterType="edu.ustc.SpringStart.person.POJO.Person">
+        insert into person(name, age)
+        values (#{name}, #{age})
     </insert>
 
-    <update id="updateStudentById" parameterType="edu.ustc.SpringStart.person.POJO.Person">
-        update mybatis_start.person
-        set name = #{},
-            age  = #{}
+    <update id="updatePersonById" parameterType="edu.ustc.SpringStart.person.POJO.Person">
+        update person
+        set name = #{name},
+            age  = #{age}
+        where id = #{id}
     </update>
 
-    <insert id="deleteStudentById" parameterType="int">
+    <insert id="deletePersonById" parameterType="int">
         delete
-        FROM mybatis_start.person
+        FROM person
         where id = #{id}
     </insert>
 </mapper>
