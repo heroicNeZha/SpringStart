@@ -8,7 +8,7 @@
 #manage .layui-layer-btn0:hover{background:#f53f3f url(../image/btn1.png) no-repeat;background-position:9px 8px;}
 #manage .layui-layer-btn1:hover{background:#4e5665 url(../image/btn2.png) no-repeat;background-position:9px 8px;}
 #manage .layui-layer-btn2:hover{background:#428bca url(../image/btn1.png) no-repeat;background-position:9px 8px;}
-#man-open1{min-width:907px;}
+#man-open1{min-width:890px;}
 #executerDiv ul li{display:inline-block;width:auto;margin-top:5px; margin-right: 30px;}
 #executerDiv ul li input[type="checkbox"]{vertical-align:middle;margin:0 4px 0 0;}
 .input-group-btn button{padding:6px 12px;}
@@ -20,10 +20,10 @@ div#headImageAttaInfo>img{width:60px;height:60px;float:left;margin:0 0 5px 25px;
 /*閿燂拷?椤?*/
 .pull-wrap .table-bordereds{width:96%;margin:auto;color:#666;border-spacing:0;border-top:1px solid #e5e5e5;border-left:1px solid #e5e5e5;}
 .pull-wrap .table-bordereds td{border-right:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;}
-.pull-wrap .table-bordereds .table_header{width:20%;background:#f5f5f5;text-align:right;font-weight:400;vertical-align:middle;padding:5px 0 ;}
-.pull-wrap .table-bordereds .table_text{width:30%;padding:5px 0 5px 10px;word-break:break-all;word-wrap:break-word; }
+.pull-wrap .table-bordereds .table_header{width:15%;background:#f5f5f5;text-align:right;font-weight:400;vertical-align:middle;padding:5px 0 ;}
+.pull-wrap .table-bordereds .table_text{width:35%;padding:5px 0 5px 10px;word-break:break-all;word-wrap:break-word; }
 .pull-wrap .table-bordereds tr{border:none;}
-.pull-wrap .table-bordereds input[type='text'],#manage .table-bordereds input[type='password']{width:80%;float:left;height:27px;line-height:27px;font-size:14px;padding:0 10px;border-radius:4px;background:#fff;}
+.pull-wrap .table-bordereds input[type='text'],#manage .table-bordereds input[type='password'],#manage .table-bordereds input[type='number']{width:80%;float:left;height:27px;line-height:27px;font-size:14px;padding:0 10px;border-radius:4px;background:#fff;}
 .table_text .select2-container{width:80% !important;}
 .table-bordereds .form-group .input-group,.table-bordereds .table_text .input-group{width:80%;}
 .table-bordereds .table_text .input-group .form-control{width:100% !important;}

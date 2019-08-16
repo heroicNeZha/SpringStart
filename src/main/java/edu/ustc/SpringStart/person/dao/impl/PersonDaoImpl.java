@@ -12,28 +12,56 @@ import java.util.List;
 
 public class PersonDaoImpl implements IPersonDao {
     @Override
+    public Person queryPersonById(int id) throws Exception {
+        Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
+        SqlSession session = factory.openSession();
+        String statement = "mapper.personMapper.queryPersonById";
+        Person person = session.selectOne(statement, id);
+        return person;
+    }
+
+    @Override
     public Person queryPersonByName(String name) throws Exception {
         Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         SqlSession session = factory.openSession();
         String statement = "mapper.personMapper.queryPersonByName";
-        Person person = session.selectOne(statement,name);
+        Person person = session.selectOne(statement, name);
         return person;
     }
 
     @Override
-    public Person addPerson(Person person) throws Exception {
-        return null;
+    public int addPerson(Person person) throws Exception {
+        Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
+        SqlSession session = factory.openSession();
+        String statement = "mapper.personMapper.addPerson";
+        int val = session.insert(statement, person);
+        session.commit();
+        return val;
     }
 
     @Override
-    public Person updatePersonById(Person person) throws Exception {
-        return null;
+    public int updatePersonById(Person person) throws Exception {
+        Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
+        SqlSession session = factory.openSession();
+        String statement = "mapper.personMapper.updatePersonById";
+        int val = session.update(statement, person);
+        session.commit();
+        return val;
     }
 
     @Override
-    public Person deletePersonById(int id) throws Exception {
-        return null;
+    public int deletePersonById(int id) throws Exception {
+        Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
+        SqlSession session = factory.openSession();
+        String statement = "mapper.personMapper.deletePersonById";
+        int val = session.delete(statement, id);
+        session.commit();
+        return val;
     }
 
     @Override

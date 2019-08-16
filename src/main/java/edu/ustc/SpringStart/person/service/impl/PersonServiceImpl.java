@@ -23,4 +23,24 @@ public class PersonServiceImpl implements IPersonService {
     public Person queryPersonByName(String name) throws Exception {
         return personDao.queryPersonByName(name);
     }
+
+    @Override
+    public Person queryPersonById(int id) throws Exception {
+        return personDao.queryPersonById(id);
+    }
+
+    @Override
+    public int addPerson(Person person) throws Exception {
+        return personDao.addPerson(person);
+    }
+
+    @Override
+    public int updatePersonById(Person person) throws Exception {
+        return personDao.updatePersonById(person);
+    }
+
+    @Override
+    public int deletePersonById(int id) throws Exception {
+        return personDao.deletePersonById(id);
+    }
 }
