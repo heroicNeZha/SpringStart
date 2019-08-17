@@ -27,7 +27,7 @@
 </head>
 <body style="background: #f1f1f1;">
 <script type="text/javascript">
-    function initHolidayEdit(oid) {
+    function initPersonEdit(oid) {
         var url = "${ctxPath}person/init";
         var message;
         if (oid) {
@@ -49,21 +49,20 @@
         diag.show();
     }
 
-    <%--function deleteHoliday(oid) {--%>
-    <%--    Dialog.confirm('你确定要删除吗？', function () {--%>
-    <%--        common.ajaxPost('${ctxPath }sys/holiday/delete.do?oid=' + oid,--%>
-    <%--            null, function (data) {--%>
-    <%--                var mes = eval(data);--%>
-    <%--                if (mes.success) {--%>
-    <%--                    Dialog.alert("删除成功！", function () {--%>
-    <%--                        nextPage('${page.pageNumber }');--%>
-    <%--                    });--%>
-    <%--                } else {--%>
-    <%--                    Dialog.alert(mes.data);--%>
-    <%--                }--%>
-    <%--            });--%>
-    <%--    });--%>
-    <%--}--%>
+    function deletePerson(oid) {
+        Dialog.confirm('你确定要删除吗？', function () {
+            $.post('${ctxPath }person/delete?id=' + oid, null, function (data) {
+                let mes = eval(data);
+                if (mes.success) {
+                    Dialog.alert("删除成功！", function () {
+                        top.window.location.reload();
+                    });
+                } else {
+                    Dialog.alert(mes.data);
+                }
+            });
+        });
+    }
 
     function confimForm() {
         $('#queryForm').submit();
@@ -87,7 +86,7 @@
                     <button type="submit" class="btn btn-primary" onclick="confimForm()">
                         <i class=" fa fa-search"></i> 搜索
                     </button>
-                    <button type="button" class="btn btn-primary" onclick="initHolidayEdit()">
+                    <button type="button" class="btn btn-primary" onclick="initPersonEdit()">
                         <i class="icon-plus"></i> 增加
                     </button>
                 </div>
@@ -98,9 +97,10 @@
         <div class="select_result_list">
             <table class="table table-bordered" style="table-layout: fixed;" id="tableList">
                 <tr>
-                    <th width="5%">序号</th>
+                    <th width="10%">序号</th>
                     <th width="30%">姓名</th>
-                    <th width="30%">性别</th>
+                    <th width="30%">年龄</th>
+                    <th width="20%">操作</th>
                 </tr>
                 <c:forEach items="${people}" var="person" varStatus="status">
                     <tr oid="<c:out value='${person.id }' />">
@@ -109,6 +109,7 @@
                                 href="${ctxPath}person/search?name=${person.name }"><c:out value='${person.name }'/></a>
                         </td>
                         <td title="<c:out value='${person.age }'/>"><c:out value='${person.age }'/></td>
+                        <td class="visible"></td>
                     </tr>
                 </c:forEach>
             </table>
@@ -116,5 +117,14 @@
         </div>
     </div>
 </div>
+<script>
+
+    $(function () {
+        TableList.genOperIcon("tableList", '1'
+            , "修改", "glyphicon glyphicon-pencil", "initPersonEdit('holidayOid')", [{"holidayOid": "oid"}]
+            , "删除", "glyphicon glyphicon-trash", "deletePerson('holidayOid')", [{"holidayOid": "oid"}]
+        )
+    });
+</script>
 </body>
 </html>

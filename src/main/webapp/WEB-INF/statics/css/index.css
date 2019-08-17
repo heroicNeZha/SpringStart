@@ -42,7 +42,7 @@
 .select_result_list .table-bordered{margin:0 12px;width:97.6%;float:left;}
 .select_result_list .table-bordered,.select_result_list .table-bordered th{text-align:center;color:#3f3f3f;font-size:12px;font-weight:300;}
 .select_result_list .table-bordered td{color:#696969;padding:0 5px;}
-.select_result_list .table-bordered td .use i{font-size:16px;}
+.select_result_list .table-bordered td .use i{font-size:12px;}
 .select_result_list .table-bordered td .use{width:90px;height:26px;background:url(../image/gray_use.png) no-repeat;color:#fff;text-align:left;padding-top:3px;padding-left:4px;margin:0 auto;position:relative;line-height:24px;cursor:pointer;}
 .select_result_list .table-bordered td .green_use{background:url(../image/green_use.png) no-repeat !important;}
 .select_exist_list span .close_right{background:url(../image/green_use.png) no-repeat !important;}

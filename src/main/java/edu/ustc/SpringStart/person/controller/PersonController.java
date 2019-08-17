@@ -82,17 +82,52 @@ public class PersonController {
 
     @RequestMapping("/save")
     @ResponseBody
-    public Map<String, Object> saveOrUpdateHoliday(Person person) {
-        String memo = "保存Person信息" + person;
+    public Map<String, Object> saveOrUpdatePerson(Person person) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         try {
-            int flag = personService.addPerson(person);
-            if (flag > 0) {// 保存成功
-                modelMap.put("success", true);
-                modelMap.put("data", "保存成功");
+            if (person.getId() > 0) {
+                int flag = personService.updatePersonById(person);
+                if (flag > 0) {// 保存成功
+                    modelMap.put("success", true);
+                } else {
+                    modelMap.put("success", false);
+                    modelMap.put("data", "保存失败，错误码:" + flag);
+                }
+            } else {
+                int flag = personService.addPerson(person);
+                if (flag > 0) {// 保存成功
+                    modelMap.put("success", true);
+                } else {
+                    modelMap.put("success", false);
+                    modelMap.put("data", "保存失败，错误码:" + flag);
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            modelMap.put("success", false);
+            modelMap.put("data", e.getMessage());
+        }
+        return modelMap;
+
+    }
+
+    @RequestMapping("/delete")
+    @ResponseBody
+    public Map<String, Object> deletePerson(int id) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        try {
+            if (id > 0) {
+                int flag = personService.deletePersonById(id);
+                if (flag > 0) {// 保存成功
+                    modelMap.put("success", true);
+                } else {
+                    modelMap.put("success", false);
+                    modelMap.put("data", "保存失败，错误码:" + flag);
+                }
             } else {
                 modelMap.put("success", false);
-                modelMap.put("data", flag);
+                modelMap.put("data", "保存失败, 未选中Person");
             }
 
         } catch (Exception e) {

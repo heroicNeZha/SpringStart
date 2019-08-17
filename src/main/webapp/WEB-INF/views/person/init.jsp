@@ -54,8 +54,7 @@
 <div id="man-open1">
     <div id="manage">
         <form action="${ctxPath}person/save" id="form1" name="form1">
-            <input type="hidden" name="token" value="${token }"/>
-            <input type="hidden" name="oid" value="${person.id}"/>
+            <input type="hidden" name="id" value="${person.id}"/>
             <div class="pull-wrap">
                 <table class="table-bordereds" border="0" cellspacing="0">
                     <tr>
@@ -65,8 +64,8 @@
                                    value="${person.name }" placeholder="姓名"/>
                             <font style="color: red; float: left; margin: 5px 0 0 5px;">*</font>
                         </td>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
+                    </tr>
+                    <tr>
                         <td class="table_header"><label for="age">年龄：</label></td>
                         <td class="table_text">
                             <input type="number" class="form-control" id="age" name="age"
