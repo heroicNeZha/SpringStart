@@ -2,6 +2,7 @@ package edu.ustc.SpringStart.person.dao.impl;
 
 import edu.ustc.SpringStart.person.POJO.Person;
 import edu.ustc.SpringStart.person.dao.IPersonDao;
+import edu.ustc.SpringStart.person.mapper.PersonMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -16,8 +17,8 @@ public class PersonDaoImpl implements IPersonDao {
         Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         SqlSession session = factory.openSession();
-        String statement = "mapper.personMapper.queryPersonById";
-        Person person = session.selectOne(statement, id);
+        PersonMapper personMapper = session.getMapper(PersonMapper.class);
+        Person person = personMapper.queryPersonById(id);
         return person;
     }
 
@@ -26,8 +27,8 @@ public class PersonDaoImpl implements IPersonDao {
         Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         SqlSession session = factory.openSession();
-        String statement = "mapper.personMapper.queryPersonByName";
-        Person person = session.selectOne(statement, name);
+        PersonMapper personMapper = session.getMapper(PersonMapper.class);
+        Person person = personMapper.queryPersonByName(name);
         return person;
     }
 
@@ -36,10 +37,10 @@ public class PersonDaoImpl implements IPersonDao {
         Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         SqlSession session = factory.openSession();
-        String statement = "mapper.personMapper.addPerson";
-        int val = session.insert(statement, person);
+        PersonMapper personMapper = session.getMapper(PersonMapper.class);
+        personMapper.addPerson(person);
         session.commit();
-        return val;
+        return 1;
     }
 
     @Override
@@ -47,10 +48,10 @@ public class PersonDaoImpl implements IPersonDao {
         Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         SqlSession session = factory.openSession();
-        String statement = "mapper.personMapper.updatePersonById";
-        int val = session.update(statement, person);
+        PersonMapper personMapper = session.getMapper(PersonMapper.class);
+        personMapper.updatePersonById(person);
         session.commit();
-        return val;
+        return 1;
     }
 
     @Override
@@ -58,10 +59,10 @@ public class PersonDaoImpl implements IPersonDao {
         Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         SqlSession session = factory.openSession();
-        String statement = "mapper.personMapper.deletePersonById";
-        int val = session.delete(statement, id);
+        PersonMapper personMapper = session.getMapper(PersonMapper.class);
+        personMapper.deletePersonById(id);
         session.commit();
-        return val;
+        return 1;
     }
 
     @Override
@@ -69,8 +70,8 @@ public class PersonDaoImpl implements IPersonDao {
         Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         SqlSession session = factory.openSession();
-        String statement = "mapper.personMapper.queryAll";
-        List<Person> persons = session.selectList(statement);
+        PersonMapper personMapper = session.getMapper(PersonMapper.class);
+        List<Person> persons = personMapper.queryAll();
         return persons;
     }
 }

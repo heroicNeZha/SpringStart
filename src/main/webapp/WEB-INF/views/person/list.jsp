@@ -64,7 +64,7 @@
         });
     }
 
-    function confimForm() {
+    function submitForm() {
         $('#queryForm').submit();
     }
 </script>
@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="btn-group col-md-3">
-                    <button type="submit" class="btn btn-primary" onclick="confimForm()">
+                    <button type="submit" class="btn btn-primary" onclick="submitForm()">
                         <i class=" fa fa-search"></i> 搜索
                     </button>
                     <button type="button" class="btn btn-primary" onclick="initPersonEdit()">
