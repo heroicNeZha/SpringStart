@@ -40,7 +40,7 @@
     </typeAliases>
 
     <typeHandlers>
-        <typeHandler handler="edu.ustc.SpringStart.person.converter.BoolenAndIntConverler" javaType="Boolean" jdbcType="Integer"/>
+        <typeHandler handler="edu.ustc.SpringStart.person.converter.BoolenAndIntConverler" javaType="Boolean" jdbcType="INTEGER"/>
     </typeHandlers>
 
     <environments default="development">
