@@ -23,12 +23,12 @@ public class PersonDaoImpl implements IPersonDao {
     }
 
     @Override
-    public Person queryPersonByName(String name) throws Exception {
+    public List<Person> queryPersonByName(String name) throws Exception {
         Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         SqlSession session = factory.openSession();
         PersonMapper personMapper = session.getMapper(PersonMapper.class);
-        Person person = personMapper.queryPersonByName(name);
+        List<Person> person = personMapper.queryPersonByName(name);
         return person;
     }
 

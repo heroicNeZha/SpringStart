@@ -7,7 +7,7 @@ import java.util.List;
 public interface IPersonDao {
     Person queryPersonById(int id) throws Exception;
 
-    Person queryPersonByName(String name) throws Exception;
+    List<Person> queryPersonByName(String name) throws Exception;
 
     int addPerson(Person person) throws Exception;
 

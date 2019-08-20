@@ -56,4 +56,9 @@
     <!--    <tx:annotation-driven transaction-manager="transactionManager"/>-->
 
     <bean class="edu.ustc.SpringStart.person.dao.impl.PersonDaoImpl" id="personDao"></bean>
+
+<!--    扫描Mapper，并将其生命周期纳入Spring的管理-->
+<!--    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+    <!--        <property name="basePackage" value="edu.ustc.SpringStart.person.mapper.PersonMapper"/>-->
+    <!--    </bean>-->
 </beans>

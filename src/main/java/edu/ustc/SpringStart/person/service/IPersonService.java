@@ -8,7 +8,7 @@ import java.util.List;
 public interface IPersonService {
     List<Person> queryAll() throws Exception;
 
-    Person queryPersonByName(String name) throws Exception;
+    List<Person> queryPersonByName(String name) throws Exception;
 
     Person queryPersonById(int id) throws Exception;
 

@@ -1,4 +1,5 @@
 import edu.ustc.SpringStart.person.POJO.Person;
+import edu.ustc.SpringStart.person.mapper.PersonMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.*;
 import org.junit.Test;
@@ -13,9 +14,15 @@ public class TestMyBatis {
         Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        String statement = "mapper.personMapper.selectPersonById";
-        Person person = sqlSession.selectOne(statement,1);
-        System.out.println(person);
+        Person person = new Person();
+        person.setName("wyl");
+        person.setAge(18);
+        person.setSex(false);
+        PersonMapper mapper = sqlSession.getMapper(PersonMapper.class);
+        mapper.addPerson(person);
+        System.out.println(mapper.queryAll());
+        sqlSession.commit();
+        System.out.println(mapper.queryAll());
         sqlSession.close();
     }
 }

@@ -98,17 +98,21 @@
             <table class="table table-bordered" style="table-layout: fixed;" id="tableList">
                 <tr>
                     <th width="10%">序号</th>
-                    <th width="30%">姓名</th>
-                    <th width="30%">年龄</th>
+                    <th width="20%">姓名</th>
+                    <th width="20%">年龄</th>
+                    <th width="20%">性别</th>
                     <th width="20%">操作</th>
                 </tr>
                 <c:forEach items="${people}" var="person" varStatus="status">
                     <tr oid="<c:out value='${person.id }' />">
                         <td title="<c:out value='${status.count }'/>"><c:out value='${status.count }'/></td>
                         <td title="<c:out value='${person.name }'/> "><a
-                                href="${ctxPath}person/search?name=${person.name }"><c:out value='${person.name }'/></a>
+                                href="${ctxPath}person/person?id=${person.id }"><c:out value='${person.name }'/></a>
                         </td>
                         <td title="<c:out value='${person.age }'/>"><c:out value='${person.age }'/></td>
+                        <td>
+                            <c:out value="${person.sex?'男':'女'}"/>
+                        </td>
                         <td class="visible"></td>
                     </tr>
                 </c:forEach>

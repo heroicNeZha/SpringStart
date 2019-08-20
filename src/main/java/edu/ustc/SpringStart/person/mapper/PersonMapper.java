@@ -5,7 +5,7 @@ import edu.ustc.SpringStart.person.POJO.Person;
 import java.util.List;
 
 public interface PersonMapper {
-    Person queryPersonByName(String name);
+    List<Person> queryPersonByName(String name);
 
     Person queryPersonById(int id);
 

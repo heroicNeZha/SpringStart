@@ -53,7 +53,7 @@
 <body>
 <div id="man-open1">
     <div id="manage">
-        <form action="${ctxPath}person/save" id="form1" name="form1">
+        <form action="${ctxPath}person/save" id="form1" name="form1" class="form">
             <input type="hidden" name="id" value="${person.id}"/>
             <div class="pull-wrap">
                 <table class="table-bordereds" border="0" cellspacing="0">
@@ -71,6 +71,26 @@
                             <input type="number" class="form-control" id="age" name="age"
                                    value="${person.age }" placeholder="年龄"/>
                             <font style="color: red; margin: 5px 0 0 5px;">*</font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table_header"><label for="sex">性别：</label></td>
+                        <td class="table_text">
+                            <div id="sex">
+                                <label class="radio-inline">
+                                    <input type="radio" id="sex1" name="sex"
+                                           <c:if test="${person.sex}">checked</c:if>
+                                           value="on" placeholder="性别">男
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" id="sex2" name="sex"
+                                           <c:if test="${not person.sex}">checked</c:if>
+                                           value="off" placeholder="性别">女
+                                </label>
+                                <font style="color: red; margin: 5px 0 0 5px;">*</font>
+                            </div>
+
+
                         </td>
                     </tr>
                 </table>

@@ -23,7 +23,7 @@
     <select id="queryPersonByName" resultMap="personResult" parameterType="string">
         select *
         from person
-        where name = #{name}
+        where name like '%${name}%'
     </select>
 
     <select id="queryAll" resultMap="personResult">
@@ -33,13 +33,14 @@
 
     <insert id="addPerson" parameterType="person">
         insert into person(name, age ,sex)
-        values (#{name}, #{age},#{sex,javaType=boolen,jdbcType=INTEGER})
+        values (#{name}, #{age},#{sex,javaType=boolean,jdbcType=INTEGER})
     </insert>
 
     <update id="updatePersonById" parameterType="person">
         update person
         set name = #{name},
-            age  = #{age}
+            age  = #{age},
+            sex = #{sex,javaType=boolean,jdbcType=INTEGER}
         where id = #{id}
     </update>
 

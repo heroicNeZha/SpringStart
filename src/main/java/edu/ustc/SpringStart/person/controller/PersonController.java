@@ -53,7 +53,21 @@ public class PersonController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("person/list");
         try {
-            Person person = personService.queryPersonByName(name);
+            List<Person> people = personService.queryPersonByName(name);
+            modelAndView.addObject("people", people);
+        } catch (Exception e) {
+            System.out.println("PersonController:");
+            e.printStackTrace();
+        }
+        return modelAndView;
+    }
+
+    @RequestMapping("/person")
+    public ModelAndView search(int id) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("person/list");
+        try {
+            Person person = personService.queryPersonById(id);
             List<Person> people = new ArrayList<>();
             people.add(person);
             modelAndView.addObject("people", people);

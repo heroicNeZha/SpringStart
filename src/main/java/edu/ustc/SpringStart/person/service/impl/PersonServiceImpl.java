@@ -20,7 +20,7 @@ public class PersonServiceImpl implements IPersonService {
     }
 
     @Override
-    public Person queryPersonByName(String name) throws Exception {
+    public List<Person> queryPersonByName(String name) throws Exception {
         return personDao.queryPersonByName(name);
     }
 
