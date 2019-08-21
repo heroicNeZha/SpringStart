@@ -14,11 +14,18 @@
         <result property="sex" column="sex" javaType="Boolean" jdbcType="INTEGER"/>
     </resultMap>
 
-    <select id="queryPersonById" resultMap="personResult" parameterType="int">
+    <select id="queryPersonById" resultMap="personResult" parameterType="HashMap" statementType="CALLABLE">
         select *
         from person
         where id = #{id}
     </select>
+
+    <select id="queryPersonByAge" resultMap="personResult" parameterType="HashMap" statementType="CALLABLE">
+        {
+            CALL queryPersonByIdWithProcedure(#{start_age,jdbcType=INTEGER,mode=IN},#{end_age,jdbcType=INTEGER,mode=IN},#{p_count,jdbcType=INTEGER,mode=OUT})
+            }
+    </select>
+
 
     <select id="queryPersonByName" resultMap="personResult" parameterType="string">
         select *
@@ -32,15 +39,15 @@
     </select>
 
     <insert id="addPerson" parameterType="person">
-        insert into person(name, age ,sex)
-        values (#{name}, #{age},#{sex,javaType=boolean,jdbcType=INTEGER})
+        insert into person(name, age, sex)
+        values (#{name}, #{age}, #{sex,javaType=boolean,jdbcType=INTEGER})
     </insert>
 
     <update id="updatePersonById" parameterType="person">
         update person
         set name = #{name},
             age  = #{age},
-            sex = #{sex,javaType=boolean,jdbcType=INTEGER}
+            sex  = #{sex,javaType=boolean,jdbcType=INTEGER}
         where id = #{id}
     </update>
 
@@ -49,4 +56,5 @@
         FROM person
         where id = #{id}
     </insert>
+
 </mapper>
