@@ -32,4 +32,5 @@ public class TestMyBatis {
 //        System.out.println(mapper.queryAll());
         sqlSession.close();
     }
+
 }
