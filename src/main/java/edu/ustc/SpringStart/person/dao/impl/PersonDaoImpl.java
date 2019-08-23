@@ -12,24 +12,15 @@ import java.io.Reader;
 import java.util.List;
 
 public class PersonDaoImpl implements IPersonDao {
-    @Override
-    public Person queryPersonById(int id) throws Exception {
-        Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
-        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
-        SqlSession session = factory.openSession();
-        PersonMapper personMapper = session.getMapper(PersonMapper.class);
-        Person person = personMapper.queryPersonById(id);
-        return person;
-    }
 
     @Override
-    public List<Person> queryPersonByName(String name) throws Exception {
+    public List<Person> queryPerson(Person person) throws Exception {
         Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
         SqlSession session = factory.openSession();
         PersonMapper personMapper = session.getMapper(PersonMapper.class);
-        List<Person> person = personMapper.queryPersonByName(name);
-        return person;
+        List<Person> persons = personMapper.queryPersonByPerson(person);
+        return persons;
     }
 
     @Override
@@ -63,15 +54,5 @@ public class PersonDaoImpl implements IPersonDao {
         personMapper.deletePersonById(id);
         session.commit();
         return 1;
-    }
-
-    @Override
-    public List<Person> queryAll() throws Exception {
-        Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
-        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
-        SqlSession session = factory.openSession();
-        PersonMapper personMapper = session.getMapper(PersonMapper.class);
-        List<Person> persons = personMapper.queryAll();
-        return persons;
     }
 }

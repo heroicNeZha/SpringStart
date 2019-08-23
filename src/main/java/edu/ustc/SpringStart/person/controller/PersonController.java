@@ -26,50 +26,11 @@ public class PersonController {
     private IPersonService personService;
 
     @RequestMapping("/index")
-    public String index() {
-        ApplicationContext factory = new ClassPathXmlApplicationContext("applicationContext.xml");
-//        PersonServiceImpl personService = (PersonServiceImpl) factory.getBean("personService");
-//        personService.call();
-        logger.info("the first jsp pages");
-        return "index";
-    }
-
-    @RequestMapping("/")
-    public ModelAndView person() {
+    public ModelAndView search(Person person) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("person/list");
         try {
-            List<Person> people = personService.queryAll();
-            modelAndView.addObject("people", people);
-        } catch (Exception e) {
-            System.out.println("PersonController:");
-            e.printStackTrace();
-        }
-        return modelAndView;
-    }
-
-    @RequestMapping("/search")
-    public ModelAndView search(String name) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("person/list");
-        try {
-            List<Person> people = personService.queryPersonByName(name);
-            modelAndView.addObject("people", people);
-        } catch (Exception e) {
-            System.out.println("PersonController:");
-            e.printStackTrace();
-        }
-        return modelAndView;
-    }
-
-    @RequestMapping("/person")
-    public ModelAndView search(int id) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("person/list");
-        try {
-            Person person = personService.queryPersonById(id);
-            List<Person> people = new ArrayList<>();
-            people.add(person);
+            List<Person> people = personService.queryPerson(person);
             modelAndView.addObject("people", people);
         } catch (Exception e) {
             System.out.println("PersonController:");
@@ -84,8 +45,8 @@ public class PersonController {
         modelAndView.setViewName("person/init");
         if (person.getId() != 0) {
             try {
-                Person person1 = personService.queryPersonById(person.getId());
-                modelAndView.addObject("person", person1);
+                List<Person> persons = personService.queryPerson(person);
+                modelAndView.addObject("person", persons.get(0));
             } catch (Exception e) {
                 System.out.println("PersonController:");
                 e.printStackTrace();

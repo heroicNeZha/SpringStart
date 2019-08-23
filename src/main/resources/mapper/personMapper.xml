@@ -6,6 +6,10 @@
 <!-- namespace：该映射文件唯一标识-->
 <mapper namespace="edu.ustc.SpringStart.person.mapper.PersonMapper">
 
+    <sql id="selectAll">
+        select * from person
+    </sql>
+
     <resultMap id="personResult" type="person">
         <!-- 分为主键和非主键-->
         <id property="id" column="id"/>
@@ -14,28 +18,29 @@
         <result property="sex" column="sex" javaType="Boolean" jdbcType="INTEGER"/>
     </resultMap>
 
-    <select id="queryPersonById" resultMap="personResult" parameterType="HashMap" statementType="CALLABLE">
-        select *
-        from person
-        where id = #{id}
+    <select id="queryPersonByPerson" resultMap="personResult" parameterType="person">
+        <include refid="selectAll"/>
+        <where>
+            <if test="age!=null and id!=0">
+                and id = #{id}
+            </if>
+            <if test="name!=null and name != '' ">
+                and name like '%${name}%'
+            </if>
+            <if test="age!=null and age != 0 ">
+                and age = #{age}
+            </if>
+            <if test="sex!=null and sex != '' ">
+                and sex = #{sex,javaType=boolean,jdbcType=INTEGER}
+            </if>
+        </where>
     </select>
 
     <select id="queryPersonByAge" resultMap="personResult" parameterType="HashMap" statementType="CALLABLE">
         {
-            CALL queryPersonByIdWithProcedure(#{start_age,jdbcType=INTEGER,mode=IN},#{end_age,jdbcType=INTEGER,mode=IN},#{p_count,jdbcType=INTEGER,mode=OUT})
+            CALL queryPersonByIdWithProcedure(#{start_age,jdbcType=INTEGER,mode=IN},
+                                              #{end_age,jdbcType=INTEGER,mode=IN}, #{p_count,jdbcType=INTEGER,mode=OUT})
             }
-    </select>
-
-
-    <select id="queryPersonByName" resultMap="personResult" parameterType="string">
-        select *
-        from person
-        where name like '%${name}%'
-    </select>
-
-    <select id="queryAll" resultMap="personResult">
-        select *
-        from person;
     </select>
 
     <insert id="addPerson" parameterType="person">
@@ -51,10 +56,10 @@
         where id = #{id}
     </update>
 
-    <insert id="deletePersonById" parameterType="int">
+    <delete id="deletePersonById" parameterType="int">
         delete
         FROM person
         where id = #{id}
-    </insert>
+    </delete>
 
 </mapper>

@@ -72,7 +72,7 @@
 <div class="nav_information">
     <div class="select_area_cont">
         <div class="select_exist_list">
-            <form class="form-horizontal" role="form" action="${ctxPath}person/search" id="queryForm" name="queryForm"
+            <form class="form-horizontal" role="form" action="${ctxPath}person/index" id="queryForm" name="queryForm"
                   method="get">
                 <div class="form-group col-md-9">
                     <div>
@@ -107,7 +107,7 @@
                     <tr oid="<c:out value='${person.id }' />">
                         <td title="<c:out value='${status.count }'/>"><c:out value='${status.count }'/></td>
                         <td title="<c:out value='${person.name }'/> "><a
-                                href="${ctxPath}person/person?id=${person.id }"><c:out value='${person.name }'/></a>
+                                href="${ctxPath}person/index?id=${person.id }"><c:out value='${person.name }'/></a>
                         </td>
                         <td title="<c:out value='${person.age }'/>"><c:out value='${person.age }'/></td>
                         <td>

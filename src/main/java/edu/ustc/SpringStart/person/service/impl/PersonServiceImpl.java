@@ -15,18 +15,8 @@ public class PersonServiceImpl implements IPersonService {
     private IPersonDao personDao;
 
     @Override
-    public List<Person> queryAll() throws Exception {
-        return personDao.queryAll();
-    }
-
-    @Override
-    public List<Person> queryPersonByName(String name) throws Exception {
-        return personDao.queryPersonByName(name);
-    }
-
-    @Override
-    public Person queryPersonById(int id) throws Exception {
-        return personDao.queryPersonById(id);
+    public List<Person> queryPerson(Person person) throws Exception {
+        return personDao.queryPerson(person);
     }
 
     @Override
