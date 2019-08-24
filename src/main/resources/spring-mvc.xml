@@ -49,4 +49,14 @@
         <property name="defaultEncoding" value="UTF-8"/>
         <property name="resolveLazily" value="true"/>
     </bean>
+
+
+    <!--天猫SSM Start-->
+    <context:component-scan base-package="edu.ustc.SpringStart.tmall.controller">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--开通静态资源的访问-->
+    <mvc:default-servlet-handler />
+    <!--天猫SSM End-->
 </beans>

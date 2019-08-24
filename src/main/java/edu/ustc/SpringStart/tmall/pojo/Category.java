@@ -1,11 +1,8 @@
-package edu.ustc.SpringStart.cart.POJO;
+package edu.ustc.SpringStart.tmall.pojo;
 
-import java.math.BigDecimal;
-
-public class Product {
+public class Category {
     private int id;
     private String name;
-    private BigDecimal price;
 
     public int getId() {
         return id;
@@ -21,13 +18,5 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
     }
 }
