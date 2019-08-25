@@ -6,6 +6,6 @@
 <!-- namespace：该映射文件唯一标识-->
 <mapper namespace="edu.ustc.SpringStart.tmall.mapper.CategoryMapper">
     <select id="list" resultType="Category">
-        select * from category order by id desc
+        select id,name from category order by id desc
     </select>
 </mapper>

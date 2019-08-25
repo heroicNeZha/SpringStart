@@ -15,7 +15,7 @@
        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
     <!--    开启注解扫描-->
-    <context:component-scan base-package="edu.ustc.SpringStart.person.service"/>
+    <!--    <context:component-scan base-package="edu.ustc.SpringStart.person.service"/>-->
 
     <!-- 配置mybatis, 绑定c3p0-->
     <!--    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
@@ -42,13 +42,13 @@
     <!-- 使用注解来控制事务 -->
     <!--    <tx:annotation-driven transaction-manager="transactionManager"/>-->
 
-    <bean class="edu.ustc.SpringStart.person.dao.impl.PersonDaoImpl" id="personDao"/>
+    <!--    <bean class="edu.ustc.SpringStart.person.dao.impl.PersonDaoImpl" id="personDao"/>-->
 
     <!--天猫SSM Start-->
     <context:annotation-config/>
     <context:component-scan base-package="edu.ustc.SpringStart.tmall.service"/>
     <!-- 导入数据库配置文件 -->
-    <context:property-placeholder location="jdbc.properties"/>
+    <context:property-placeholder location="classpath:jdbc.properties"/>
     <!-- 配置数据库连接池 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <property name="url" value="${jdbc.url}"/>
