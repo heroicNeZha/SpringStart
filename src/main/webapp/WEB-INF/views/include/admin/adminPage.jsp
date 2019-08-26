@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 
 	
@@ -11,16 +11,15 @@ $(function(){
 
 </script>
 
-
 <nav>
   <ul class="pagination">
-    <li <c:if test="${!page.hasPreviouse}">class="disabled"</c:if>>
+    <li <c:if test="${!page.hasPrevious}">class="disabled"</c:if>>
       <a  href="?start=0${page.param}" aria-label="Previous" >
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
 
-    <li <c:if test="${!page.hasPreviouse}">class="disabled"</c:if>>
+    <li <c:if test="${!page.hasPrevious}">class="disabled"</c:if>>
       <a  href="?start=${page.start-page.count}${page.param}" aria-label="Previous" >
         <span aria-hidden="true">&lsaquo;</span>
       </a>
@@ -37,7 +36,6 @@ $(function(){
 		    </li>
 		
     </c:forEach>
-
     <li <c:if test="${!page.hasNext}">class="disabled"</c:if>>
       <a href="?start=${page.start+page.count}${page.param}" aria-label="Next">
         <span aria-hidden="true">&rsaquo;</span>
