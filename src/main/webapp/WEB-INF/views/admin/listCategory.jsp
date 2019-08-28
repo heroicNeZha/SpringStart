@@ -47,7 +47,7 @@
 
                 <tr>
                     <td>${c.id}</td>
-                    <td><img height="40px" src="img/category/${c.id}.jpg" alt=""></td>
+                    <td><img height="40px" src="${ctxPath}/img/category/${c.id}.jpg" alt=""></td>
                     <td>${c.name}</td>
 
                     <td><a href="${ctxPath}tmall/admin_property_list?cid=${c.id}"><span

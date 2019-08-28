@@ -12,7 +12,6 @@
 	<link href="${ctxPath}css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
 	<script src="${ctxPath}js/bootstrap/3.3.6/bootstrap.min.js"></script>
 	<link href="${ctxPath}css/back/style.css" rel="stylesheet">
-	
 <script>
 function checkEmpty(id, name){
 	var value = $("#"+id).val();

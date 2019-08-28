@@ -24,4 +24,14 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> list(Page page) {
         return categoryMapper.list(page);
     }
+
+    @Override
+    public int add(Category category) {
+        return categoryMapper.add(category);
+    }
+
+    @Override
+    public int delete(Category category) {
+        return categoryMapper.delete(category);
+    }
 }
