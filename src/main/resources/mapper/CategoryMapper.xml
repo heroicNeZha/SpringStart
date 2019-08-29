@@ -12,6 +12,24 @@
         </if>
     </select>
 
+    <select id="query" parameterType="Category" resultType="Category">
+        select id,name from category
+        <where>
+            <if test="id>0">
+                and id = ${id}
+            </if>
+            <if test="name!=null and name!=''">
+                and name = ${name}
+            </if>
+        </where>
+    </select>
+
+    <update id="update" parameterType="Category">
+        update category
+        set name = #{name}
+        where id = #{id}
+    </update>
+
     <select id="total" resultType="int">
         select count(*)
         from category

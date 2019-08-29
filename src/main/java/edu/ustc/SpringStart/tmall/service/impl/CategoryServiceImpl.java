@@ -34,4 +34,16 @@ public class CategoryServiceImpl implements CategoryService {
     public int delete(Category category) {
         return categoryMapper.delete(category);
     }
+
+    @Override
+    public Category query(Category category) {
+        return categoryMapper.query(category);
+    }
+
+    @Override
+    public int update(Category category) {
+        return categoryMapper.update(category);
+    }
+
+
 }

@@ -13,4 +13,9 @@ public interface CategoryMapper {
     int add(Category category);
 
     int delete(Category category);
+
+    Category query(Category category);
+
+    int update(Category category);
+
 }

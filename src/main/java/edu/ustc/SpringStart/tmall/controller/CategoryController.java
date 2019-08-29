@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import javax.servlet.Filter;
@@ -59,6 +60,34 @@ public class CategoryController {
             File file = new File(imageFolder, category.getId() + ".jpg");
             file.delete();
         }
+        return "redirect:/tmall/admin_category_list";
+    }
+
+    @RequestMapping("admin_category_edit")
+    public String edit(Model model, Category category) {
+        if (category.getId() > 0) {
+            category = categoryService.query(category);
+            model.addAttribute("category", category);
+            return "admin/editCategory";
+        }
+        return "redirect:/tmall/admin_category_list";
+    }
+
+    @RequestMapping("admin_category_update")
+    public String update(Category category, HttpSession session, UploadedImageFile uploadedImageFile) {
+        try {
+            int count = categoryService.update(category);
+            MultipartFile image = uploadedImageFile.getImage();
+            if (count > 0 && image != null && !image.isEmpty()) {
+                File file = new File(session.getServletContext().getRealPath("statics/img/category"), category.getId() + ".jpg");
+                image.transferTo(file);
+                BufferedImage img = ImageUtil.change2jpg(file);
+                ImageIO.write(img, "jpg", file);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return "redirect:/tmall/admin_category_list";
     }
 }
