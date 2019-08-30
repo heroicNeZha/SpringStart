@@ -8,7 +8,7 @@ import java.util.List;
 public interface CategoryMapper {
     int total();
 
-    List<Category> list(Page page);
+    List<Category> list();
 
     int add(Category category);
 
