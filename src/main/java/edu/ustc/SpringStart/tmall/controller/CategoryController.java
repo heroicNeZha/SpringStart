@@ -1,6 +1,7 @@
 package edu.ustc.SpringStart.tmall.controller;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import edu.ustc.SpringStart.tmall.pojo.Category;
 import edu.ustc.SpringStart.tmall.service.CategoryService;
 import edu.ustc.SpringStart.tmall.util.ImageUtil;
@@ -31,6 +32,7 @@ public class CategoryController {
     public String list(Model model, Page page) {
         PageHelper.offsetPage(page.getStart(), 5);
         List<Category> categories = categoryService.list();
+        page.setTotal((int) new PageInfo<>(categories).getTotal());
         model.addAttribute("categories", categories);
         model.addAttribute("page", page);
         return "admin/listCategory";
