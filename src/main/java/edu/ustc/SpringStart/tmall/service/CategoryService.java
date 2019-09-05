@@ -6,7 +6,6 @@ import edu.ustc.SpringStart.tmall.util.Page;
 import java.util.List;
 
 public interface CategoryService {
-    int total();
 
     List<Category> list();
 

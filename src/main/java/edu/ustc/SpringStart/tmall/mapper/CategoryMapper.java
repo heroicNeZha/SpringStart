@@ -1,21 +1,21 @@
 package edu.ustc.SpringStart.tmall.mapper;
 
 import edu.ustc.SpringStart.tmall.pojo.Category;
-import edu.ustc.SpringStart.tmall.util.Page;
-
+import edu.ustc.SpringStart.tmall.pojo.CategoryExample;
 import java.util.List;
 
 public interface CategoryMapper {
-    int total();
+    int deleteByPrimaryKey(Integer id);
 
-    List<Category> list();
+    int insert(Category record);
 
-    int add(Category category);
+    int insertSelective(Category record);
 
-    int delete(Category category);
+    List<Category> selectByExample(CategoryExample example);
 
-    Category query(Category category);
+    Category selectByPrimaryKey(Integer id);
 
-    int update(Category category);
+    int updateByPrimaryKeySelective(Category record);
 
+    int updateByPrimaryKey(Category record);
 }
