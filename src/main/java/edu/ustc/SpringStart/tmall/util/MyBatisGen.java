@@ -19,17 +19,6 @@ import java.util.List;
 public class MyBatisGen {
     public static void main(String[] args) {
         try {
-            String today = "2019-09-05";
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            Date now = sdf.parse(today);
-            Date d = new Date();
-
-            if (d.getTime() > now.getTime() + 1000 * 60 * 60 * 24) {
-                System.err.println("——————未成成功运行——————");
-                System.err.println("——————未成成功运行——————");
-                System.err.println("本程序具有破坏作用，应该只运行一次，如果必须要再运行，需要修改today变量为今天，如:" + sdf.format(new Date()));
-                return;
-            }
 
             List<String> warnings = new ArrayList<String>();
             boolean overwrite = true;
@@ -42,7 +31,7 @@ public class MyBatisGen {
             DefaultShellCallback callback = new DefaultShellCallback(overwrite);
             MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
             myBatisGenerator.generate(null);
-        } catch (IOException | XMLParserException | InvalidConfigurationException | InterruptedException | ParseException | SQLException e) {
+        } catch (IOException | XMLParserException | InvalidConfigurationException | InterruptedException | SQLException e) {
             e.printStackTrace();
         }
     }
