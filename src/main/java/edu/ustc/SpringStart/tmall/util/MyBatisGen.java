@@ -10,25 +10,21 @@ import org.mybatis.generator.internal.DefaultShellCallback;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class MyBatisGen {
     public static void main(String[] args) {
         try {
-
-            List<String> warnings = new ArrayList<String>();
-            boolean overwrite = true;
+            List<String> warnings = new ArrayList<>();
             InputStream is = MyBatisGen.class.getClassLoader().getResource("generatorConfig.xml").openStream();
-
             ConfigurationParser cp = new ConfigurationParser(warnings);
             Configuration config = cp.parseConfiguration(is);
             is.close();
 
+            boolean overwrite = true;
             DefaultShellCallback callback = new DefaultShellCallback(overwrite);
+
             MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
             myBatisGenerator.generate(null);
         } catch (IOException | XMLParserException | InvalidConfigurationException | InterruptedException | SQLException e) {

@@ -36,7 +36,10 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public Category query(Category category) {
         CategoryExample example = new CategoryExample();
-
+        CategoryExample.Criteria criteria = example.createCriteria();
+        if (category.getId() > 0) criteria.andIdEqualTo(category.getId());
+        if (category.getName() != null && !category.getName().equals(""))
+            criteria.andNameLike(category.getName());
         return categoryMapper.selectByExample(example).get(0);
     }
 
