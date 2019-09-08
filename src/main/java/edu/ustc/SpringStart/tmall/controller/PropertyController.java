@@ -20,7 +20,7 @@ public class PropertyController {
     PropertyService propertyService;
 
     @RequestMapping("/admin_property_list")
-    public String adminPropertyList(Model model, Page page, int cid) {
+    public String adminPropertyList(Model model, Page page, Integer cid) {
         PageHelper.offsetPage(page.getStart(), 5);
         List<Property> properties = propertyService.list(cid);
         page.setTotal((int) new PageInfo<>(properties).getTotal());
@@ -30,10 +30,39 @@ public class PropertyController {
     }
 
     @RequestMapping("/admin_property_add")
-    public String adminPropertyAdd(Property property) {
+    public String adminPropertyAdd(Model model, Property property) {
         if (property.getName() != null && property.getCid() != null && !property.getName().equals("")) {
             propertyService.add(property);
         }
-        return "redirect:/tmall/admin_property_list";
+        return "redirect:/tmall/admin_property_list?cid=" + property.getCid();
     }
+
+    @RequestMapping("/admin_property_delete")
+    public String delete(Property property) {
+        if (property.getId() != null && property.getId() > 0) {
+            Property p = propertyService.query(property);
+            propertyService.delete(property);
+            return "redirect:/tmall/admin_property_list?cid=" + p.getCid();
+        }
+        return "redirect:/tmall/admin_category_list";
+    }
+
+    @RequestMapping("/admin_property_edit")
+    public String edit(Model model, Property property) {
+        if (property.getId() != null) {
+            Property p = propertyService.query(property);
+            model.addAttribute("property", p);
+        }
+        return "admin/editProperty";
+    }
+
+    @RequestMapping("/admin_property_update")
+    public String update(Property property) {
+        if (property.getId() != null && property.getName() != null && !property.getName().equals("")) {
+            propertyService.update(property);
+        }
+        return "redirect:/tmall/admin_property_list?cid=" + property.getCid();
+    }
+
+
 }

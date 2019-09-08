@@ -19,8 +19,8 @@ public class PropertyServiceImpl implements PropertyService {
     @Override
     public List<Property> list(int cid) {
         PropertyExample example = new PropertyExample();
-        PropertyExample.Criteria criteria = example.createCriteria();
-        criteria.andCidEqualTo(cid);
+        example.createCriteria().andCidEqualTo(cid);
+        example.setOrderByClause("id desc");
         return propertyMapper.selectByExample(example);
     }
 
@@ -31,16 +31,16 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public int delete(Property property) {
-        return 0;
+        return propertyMapper.deleteByPrimaryKey(property.getId());
     }
 
     @Override
     public Property query(Property property) {
-        return null;
+        return propertyMapper.selectByPrimaryKey(property.getId());
     }
 
     @Override
     public int update(Property property) {
-        return 0;
+        return propertyMapper.updateByPrimaryKeySelective(property);
     }
 }
