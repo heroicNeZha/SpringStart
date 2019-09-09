@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import edu.ustc.SpringStart.tmall.pojo.Category;
 import edu.ustc.SpringStart.tmall.pojo.Property;
+import edu.ustc.SpringStart.tmall.service.CategoryService;
 import edu.ustc.SpringStart.tmall.service.PropertyService;
 import edu.ustc.SpringStart.tmall.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +19,21 @@ import java.util.List;
 public class PropertyController {
     @Autowired
     PropertyService propertyService;
+    @Autowired
+    CategoryService categoryService;
 
     @RequestMapping("/admin_property_list")
     public String adminPropertyList(Model model, Page page, Integer cid) {
         PageHelper.offsetPage(page.getStart(), 5);
         List<Property> properties = propertyService.list(cid);
         page.setTotal((int) new PageInfo<>(properties).getTotal());
+        page.setParam("&cid=" + cid);
         model.addAttribute("properties", properties);
         model.addAttribute("page", page);
+        Category category = new Category();
+        category.setId(cid);
+        category = categoryService.query(category);
+        model.addAttribute("category", category);
         return "admin/listProperty";
     }
 
@@ -52,6 +60,10 @@ public class PropertyController {
         if (property.getId() != null) {
             Property p = propertyService.query(property);
             model.addAttribute("property", p);
+            Category category = new Category();
+            category.setId(p.getCid());
+            category = categoryService.query(category);
+            model.addAttribute("category", category);
         }
         return "admin/editProperty";
     }

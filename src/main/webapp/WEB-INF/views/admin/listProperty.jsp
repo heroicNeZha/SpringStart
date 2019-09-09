@@ -25,6 +25,7 @@
 <div class="workingArea">
     <ol class="breadcrumb">
         <li><a href="${ctxPath}tmall/admin_category_list">所有分类</a></li>
+        <li><a href="${ctxPath}tmall/admin_property_list?cid=${category.id}">${category.name}</a></li>
         <li class="active">属性管理</li>
     </ol>
 
