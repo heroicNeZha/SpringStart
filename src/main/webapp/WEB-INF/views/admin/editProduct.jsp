@@ -34,26 +34,28 @@
                 <table class="addTable">
                     <tr>
                         <td>产品名称</td>
-                        <td><input id="name" name="name" type="text" class="form-control">${product.name}</td>
+                        <td><input id="name" name="name" type="text" class="form-control" value="${product.name}"></td>
                     </tr>
                     <tr>
                         <td>产品小标题</td>
-                        <td><input id="subTitle" name="subTitle" type="text" class="form-control">${product.subTitle}
+                        <td><input id="subTitle" name="subTitle" type="text" class="form-control"
+                                   value="${product.subTitle}">
                         </td>
                     </tr>
                     <tr>
                         <td>原价格</td>
                         <td><input id="originalPrice" name="originalPrice" type="text"
-                                   class="form-control">${product.originalPrice}</td>
+                                   class="form-control" value="${product.originalPrice}"></td>
                     </tr>
                     <tr>
                         <td>优惠价格</td>
                         <td><input id="promotePrice" name="promotePrice" type="text"
-                                   class="form-control">${product.promotePrice}</td>
+                                   class="form-control" value="${product.promotePrice}"></td>
                     </tr>
                     <tr>
                         <td>库存</td>
-                        <td><input id="stock" name="stock" type="text" class="form-control">${product.stock}</td>
+                        <td><input id="stock" name="stock" type="text" class="form-control" value="${product.stock}">
+                        </td>
                     </tr>
                     <tr class="submitTR">
                         <td colspan="2" align="center">

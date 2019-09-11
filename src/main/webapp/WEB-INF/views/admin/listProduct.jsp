@@ -57,6 +57,7 @@
 
                 <tr>
                     <td>${p.id}</td>
+                    <td></td>
                     <td>${p.name}</td>
                     <td>${p.subTitle}</td>
                     <td>${p.originalPrice}</td>
