@@ -30,9 +30,7 @@ public class PropertyController {
         page.setParam("&cid=" + cid);
         model.addAttribute("properties", properties);
         model.addAttribute("page", page);
-        Category category = new Category();
-        category.setId(cid);
-        category = categoryService.query(category);
+        Category category = categoryService.get(cid);
         model.addAttribute("category", category);
         return "admin/listProperty";
     }
@@ -48,7 +46,7 @@ public class PropertyController {
     @RequestMapping("/admin_property_delete")
     public String delete(Property property) {
         if (property.getId() != null && property.getId() > 0) {
-            Property p = propertyService.query(property);
+            Property p = propertyService.get(property.getId());
             propertyService.delete(property);
             return "redirect:/tmall/admin_property_list?cid=" + p.getCid();
         }
@@ -58,11 +56,9 @@ public class PropertyController {
     @RequestMapping("/admin_property_edit")
     public String edit(Model model, Property property) {
         if (property.getId() != null) {
-            Property p = propertyService.query(property);
+            Property p = propertyService.get(property.getId());
             model.addAttribute("property", p);
-            Category category = new Category();
-            category.setId(p.getCid());
-            category = categoryService.query(category);
+            Category category = categoryService.get(property.getCid());
             model.addAttribute("category", category);
         }
         return "admin/editProperty";

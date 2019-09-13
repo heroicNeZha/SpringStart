@@ -13,7 +13,7 @@ public interface CategoryService {
 
     int delete(Category category);
 
-    Category query(Category category);
+    Category get(int id);
 
     int update(Category category);
 }

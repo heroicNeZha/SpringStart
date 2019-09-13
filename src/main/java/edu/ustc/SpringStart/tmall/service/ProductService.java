@@ -5,7 +5,7 @@ import edu.ustc.SpringStart.tmall.pojo.Product;
 import java.util.List;
 
 public interface ProductService {
-    Product query(Product product);
+    Product get(int id);
 
     List<Product> list(int cid);
 

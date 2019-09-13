@@ -69,7 +69,7 @@ public class CategoryController {
     @RequestMapping("admin_category_edit")
     public String edit(Model model, Category category) {
         if (category.getId() > 0) {
-            category = categoryService.query(category);
+            category = categoryService.get(category.getId());
             model.addAttribute("category", category);
             return "admin/editCategory";
         }

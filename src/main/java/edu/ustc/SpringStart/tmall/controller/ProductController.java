@@ -27,9 +27,7 @@ public class ProductController {
     public String list(Model model, Page page, Integer cid) {
         PageHelper.offsetPage(page.getStart(), 5);
         List<Product> products = productService.list(cid);
-        Category category = new Category();
-        category.setId(cid);
-        category = categoryService.query(category);
+        Category category  = categoryService.get(cid);
         page.setTotal((int) new PageInfo<>(products).getTotal());
         page.setParam("&cid=" + cid);
         model.addAttribute("products", products);
@@ -47,14 +45,14 @@ public class ProductController {
 
     @RequestMapping("admin_product_delete")
     public String delete(Product product) {
-        product = productService.query(product);
+        product = productService.get(product.getId());
         productService.delete(product);
         return "redirect:admin_product_list?cid=" + product.getCid();
     }
 
     @RequestMapping("admin_product_edit")
     public String edit(Model model, Product product) {
-        product = productService.query(product);
+        product = productService.get(product.getId());
         model.addAttribute("product", product);
         model.addAttribute("category", product.getCategory());
         return "admin/editProduct";

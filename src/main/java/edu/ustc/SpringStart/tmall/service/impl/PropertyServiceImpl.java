@@ -35,8 +35,8 @@ public class PropertyServiceImpl implements PropertyService {
     }
 
     @Override
-    public Property query(Property property) {
-        return propertyMapper.selectByPrimaryKey(property.getId());
+    public Property get(int id) {
+        return propertyMapper.selectByPrimaryKey(id);
     }
 
     @Override

@@ -1,10 +1,13 @@
 package edu.ustc.SpringStart.tmall.service.impl;
 
 import edu.ustc.SpringStart.tmall.mapper.CategoryMapper;
+import edu.ustc.SpringStart.tmall.mapper.ProductImageMapper;
 import edu.ustc.SpringStart.tmall.mapper.ProductMapper;
 import edu.ustc.SpringStart.tmall.pojo.Category;
 import edu.ustc.SpringStart.tmall.pojo.Product;
 import edu.ustc.SpringStart.tmall.pojo.ProductExample;
+import edu.ustc.SpringStart.tmall.pojo.ProductImage;
+import edu.ustc.SpringStart.tmall.service.ProductImageService;
 import edu.ustc.SpringStart.tmall.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,12 +22,15 @@ public class ProductServiceImpl implements ProductService {
     ProductMapper productMapper;
     @Autowired
     CategoryMapper categoryMappers;
+    @Autowired
+    ProductImageService productImageService;
 
 
     @Override
-    public Product query(Product product) {
-        Product p = productMapper.selectByPrimaryKey(product.getId());
+    public Product get(int id) {
+        Product p = productMapper.selectByPrimaryKey(id);
         setCategory(p);
+        setFirstProductImage(p);
         return p;
     }
 
@@ -39,6 +45,20 @@ public class ProductServiceImpl implements ProductService {
             setCategory(p);
     }
 
+    public void setFirstProductImage(Product p) {
+        List<ProductImage> productImages = productImageService.list(p.getId(), ProductImageService.type_single);
+        if (!productImages.isEmpty()) {
+            p.setFirstProductImage(productImages.get(0));
+        }
+    }
+
+    public void setFirstProductImage(List<Product> ps) {
+        for (Product p : ps) {
+            setFirstProductImage(p);
+        }
+    }
+
+
     @Override
     public List<Product> list(int cid) {
         ProductExample example = new ProductExample();
@@ -46,6 +66,7 @@ public class ProductServiceImpl implements ProductService {
         example.setOrderByClause("id desc");
         List<Product> products = productMapper.selectByExample(example);
         setCategory(products);
+        setFirstProductImage(products);
         return products;
     }
 

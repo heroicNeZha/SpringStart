@@ -13,7 +13,7 @@ public interface PropertyService {
 
     int delete(Property property);
 
-    Property query(Property property);
+    Property get(int id);
 
     int update(Property property);
 }
