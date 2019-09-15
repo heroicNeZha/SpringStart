@@ -2,26 +2,20 @@ package edu.ustc.SpringStart.tmall.mapper;
 
 import edu.ustc.SpringStart.tmall.pojo.User;
 import edu.ustc.SpringStart.tmall.pojo.UserExample;
-import edu.ustc.SpringStart.tmall.pojo.UserKey;
-import edu.ustc.SpringStart.tmall.pojo.UserWithBLOBs;
 import java.util.List;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(UserKey key);
+    int deleteByPrimaryKey(Integer id);
 
-    int insert(UserWithBLOBs record);
+    int insert(User record);
 
-    int insertSelective(UserWithBLOBs record);
-
-    List<UserWithBLOBs> selectByExampleWithBLOBs(UserExample example);
+    int insertSelective(User record);
 
     List<User> selectByExample(UserExample example);
 
-    UserWithBLOBs selectByPrimaryKey(UserKey key);
+    User selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(UserWithBLOBs record);
-
-    int updateByPrimaryKeyWithBLOBs(UserWithBLOBs record);
+    int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
 }

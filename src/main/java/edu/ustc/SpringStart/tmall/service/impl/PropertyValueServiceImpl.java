@@ -35,7 +35,6 @@ public class PropertyValueServiceImpl implements PropertyValueService {
                 propertyValueMapper.insert(pv);
             }
         }
-
     }
 
     @Override

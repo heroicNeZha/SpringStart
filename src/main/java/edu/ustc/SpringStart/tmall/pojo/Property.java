@@ -40,4 +40,5 @@ public class Property {
     public void setCategory(Category category) {
         this.category = category;
     }
+
 }
