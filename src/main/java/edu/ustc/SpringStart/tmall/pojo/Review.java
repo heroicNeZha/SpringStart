@@ -11,7 +11,7 @@ public class Review {
 
     private Integer pid;
 
-    private Date create_date;
+    private Date createDate;
 
     public Integer getId() {
         return id;
@@ -45,11 +45,11 @@ public class Review {
         this.pid = pid;
     }
 
-    public Date getCreate_date() {
-        return create_date;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCreate_date(Date create_date) {
-        this.create_date = create_date;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 }

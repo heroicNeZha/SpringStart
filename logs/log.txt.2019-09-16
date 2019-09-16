@@ -1,0 +1,7 @@
+2019-09-16 11:27:04,556 [main] [org.mybatis.generator.logging.LogFactory] [DEBUG] - Logging initialized using 'org.mybatis.generator.logging.slf4j.Slf4jLoggingLogFactory@1e1a0406' adapter.
+2019-09-16 11:27:04,557 [main] [org.mybatis.generator.internal.db.DatabaseIntrospector] [DEBUG] - Retrieving column information for table "order_item"
+2019-09-16 11:27:04,586 [main] [org.mybatis.generator.internal.db.DatabaseIntrospector] [DEBUG] - Found column "id", data type 4, in table "mybatis_start..order_item"
+2019-09-16 11:27:04,586 [main] [org.mybatis.generator.internal.db.DatabaseIntrospector] [DEBUG] - Found column "pid", data type 4, in table "mybatis_start..order_item"
+2019-09-16 11:27:04,587 [main] [org.mybatis.generator.internal.db.DatabaseIntrospector] [DEBUG] - Found column "oid", data type 4, in table "mybatis_start..order_item"
+2019-09-16 11:27:04,587 [main] [org.mybatis.generator.internal.db.DatabaseIntrospector] [DEBUG] - Found column "number", data type 4, in table "mybatis_start..order_item"
+2019-09-16 11:27:04,587 [main] [org.mybatis.generator.internal.db.DatabaseIntrospector] [DEBUG] - Found column "uid", data type 4, in table "mybatis_start..order_item"

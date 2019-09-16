@@ -8,7 +8,7 @@ import java.util.List;
 public class Order {
     private Integer id;
 
-    private String order_code;
+    private String orderCode;
 
     private String address;
 
@@ -18,15 +18,15 @@ public class Order {
 
     private String mobile;
 
-    private String user_message;
+    private String userMessage;
 
-    private Date create_date;
+    private Date createDate;
 
-    private Date pay_date;
+    private Date payDate;
 
-    private Date delivery_date;
+    private Date deliveryDate;
 
-    private Date confirm_date;
+    private Date confirmDate;
 
     private String status;
 
@@ -108,12 +108,12 @@ public class Order {
         this.id = id;
     }
 
-    public String getOrder_code() {
-        return order_code;
+    public String getOrderCode() {
+        return orderCode;
     }
 
-    public void setOrder_code(String order_code) {
-        this.order_code = order_code == null ? null : order_code.trim();
+    public void setOrderCode(String orderCode) {
+        this.orderCode = orderCode == null ? null : orderCode.trim();
     }
 
     public String getAddress() {
@@ -148,44 +148,44 @@ public class Order {
         this.mobile = mobile == null ? null : mobile.trim();
     }
 
-    public String getUser_message() {
-        return user_message;
+    public String getUserMessage() {
+        return userMessage;
     }
 
-    public void setUser_message(String user_message) {
-        this.user_message = user_message == null ? null : user_message.trim();
+    public void setUserMessage(String userMessage) {
+        this.userMessage = userMessage == null ? null : userMessage.trim();
     }
 
-    public Date getCreate_date() {
-        return create_date;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCreate_date(Date create_date) {
-        this.create_date = create_date;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
-    public Date getPay_date() {
-        return pay_date;
+    public Date getPayDate() {
+        return payDate;
     }
 
-    public void setPay_date(Date pay_date) {
-        this.pay_date = pay_date;
+    public void setPayDate(Date payDate) {
+        this.payDate = payDate;
     }
 
-    public Date getDelivery_date() {
-        return delivery_date;
+    public Date getDeliveryDate() {
+        return deliveryDate;
     }
 
-    public void setDelivery_date(Date delivery_date) {
-        this.delivery_date = delivery_date;
+    public void setDeliveryDate(Date deliveryDate) {
+        this.deliveryDate = deliveryDate;
     }
 
-    public Date getConfirm_date() {
-        return confirm_date;
+    public Date getConfirmDate() {
+        return confirmDate;
     }
 
-    public void setConfirm_date(Date confirm_date) {
-        this.confirm_date = confirm_date;
+    public void setConfirmDate(Date confirmDate) {
+        this.confirmDate = confirmDate;
     }
 
     public String getStatus() {
@@ -203,5 +203,4 @@ public class Order {
     public void setUid(Integer uid) {
         this.uid = uid;
     }
-
 }

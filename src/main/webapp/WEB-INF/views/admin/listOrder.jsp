@@ -30,7 +30,7 @@
     <br>
 
     <div class="listDataTableDiv">
-        <table class="table table-striped table-bordered table-hover1  table-condensed">
+        <table class="table table-striped table-bordered table-hover1 table-condensed">
             <thead>
             <tr class="success">
                 <th>ID</th>
@@ -46,44 +46,42 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${orderList}" var="o">
+            <c:forEach items="${orderList}" var="order">
                 <tr>
-                    <td>${o.id}</td>
-                    <td>${o.statusDesc}</td>
-                    <td>￥<fmt:formatNumber type="number" value="${o.total}" minFractionDigits="2"/></td>
-                    <td align="center">${o.totalNumber}</td>
-                    <td align="center">${o.user.name}</td>
+                    <td>${order.id}</td>
+                    <td>${order.statusDesc}</td>
+                    <td>￥<fmt:formatNumber type="number" value="${order.total}" minFractionDigits="2"/></td>
+                    <td align="center">${order.totalNumber}</td>
+                    <td align="center">${order.user.name}</td>
 
-                    <td><fmt:formatDate value="${o.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-                    <td><fmt:formatDate value="${o.payDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-                    <td><fmt:formatDate value="${o.deliveryDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-                    <td><fmt:formatDate value="${o.confirmDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                    <td><fmt:formatDate value="${order.createDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                    <td><fmt:formatDate value="${order.payDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                    <td><fmt:formatDate value="${order.deliveryDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                    <td><fmt:formatDate value="${order.confirmDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 
                     <td>
-                        <button oid=${o.id} class="orderPageCheckOrderItems btn btn-primary btn-xs
-                        ">查看详情</button>
+                        <button oid="${order.id}" class="btn btn-primary btn-xs orderPageCheckOrderItems">查看详情</button>
 
-                        <c:if test="${o.status=='waitDelivery'}">
-                            <a href="admin_order_delivery?id=${o.id}">
+                        <c:if test="${order.status=='waitDelivery'}">
+                            <a href="${ctxPath}tmall/admin_order_delivery?id=${order.id}">
                                 <button class="btn btn-primary btn-xs">发货</button>
                             </a>
                         </c:if>
                     </td>
                 </tr>
-                <tr class="orderPageOrderItemTR" oid=${o.id}>
+                <tr class="orderPageOrderItemTR" oid="${order.id}">
                     <td colspan="10" align="center">
-
                         <div class="orderPageOrderItem">
                             <table width="800px" align="center" class="orderPageOrderItemTable">
-                                <c:forEach items="${o.orderItems}" var="oi">
+                                <c:forEach items="${order.orderItems}" var="oi">
                                     <tr>
                                         <td align="left">
                                             <img width="40px" height="40px"
-                                                 src="img/productSingle/${oi.product.firstProductImage.id}.jpg">
+                                                 src="${ctxPath}statics/img/productSingle/${oi.product.firstProductImage.id}.jpg">
                                         </td>
 
                                         <td>
-                                            <a href="foreproduct?pid=${oi.product.id}">
+                                            <a href="${ctxPath}foreproduct?pid=${oi.product.id}">
                                                 <span>${oi.product.name}</span>
                                             </a>
                                         </td>

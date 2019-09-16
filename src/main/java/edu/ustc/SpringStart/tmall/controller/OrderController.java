@@ -30,7 +30,7 @@ public class OrderController {
         page.setTotal((int) new PageInfo<>(orderList).getTotal());
 
         orderItemService.fill(orderList);
-        
+
         model.addAttribute("orderList", orderList);
         model.addAttribute("page", page);
         return "admin/listOrder";
@@ -38,7 +38,7 @@ public class OrderController {
 
     @RequestMapping("admin_order_delivery")
     public String delivery(Order order) throws IOException {
-        order.setDelivery_date(new Date());
+        order.setDeliveryDate(new Date());
         order.setStatus(OrderService.waitConfirm);
         orderService.update(order);
         return "redirect:admin_order_list";
