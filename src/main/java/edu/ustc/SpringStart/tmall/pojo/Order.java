@@ -32,6 +32,7 @@ public class Order {
 
     private Integer uid;
 
+    //后加的字段
     private List<OrderItem> orderItems;
 
     private User user;
@@ -202,4 +203,5 @@ public class Order {
     public void setUid(Integer uid) {
         this.uid = uid;
     }
+
 }

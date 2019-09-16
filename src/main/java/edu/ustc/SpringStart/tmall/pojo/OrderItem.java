@@ -9,6 +9,8 @@ public class OrderItem {
 
     private Integer number;
 
+    private Integer uid;
+
     private Product product;
 
     public Product getProduct() {
@@ -18,6 +20,7 @@ public class OrderItem {
     public void setProduct(Product product) {
         this.product = product;
     }
+
 
     public Integer getId() {
         return id;
@@ -49,5 +52,13 @@ public class OrderItem {
 
     public void setNumber(Integer number) {
         this.number = number;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 }
