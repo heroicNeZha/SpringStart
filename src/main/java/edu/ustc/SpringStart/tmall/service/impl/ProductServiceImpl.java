@@ -84,4 +84,19 @@ public class ProductServiceImpl implements ProductService {
     public int update(Product product) {
         return productMapper.updateByPrimaryKeySelective(product);
     }
+
+    @Override
+    public void fill(List<Category> cs) {
+
+    }
+
+    @Override
+    public void fill(Category c) {
+
+    }
+
+    @Override
+    public void fillByRow(List<Category> cs) {
+
+    }
 }

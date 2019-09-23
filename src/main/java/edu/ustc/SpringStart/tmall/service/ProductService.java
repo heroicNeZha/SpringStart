@@ -1,5 +1,6 @@
 package edu.ustc.SpringStart.tmall.service;
 
+import edu.ustc.SpringStart.tmall.pojo.Category;
 import edu.ustc.SpringStart.tmall.pojo.Product;
 
 import java.util.List;
@@ -14,5 +15,12 @@ public interface ProductService {
     int delete(Product product);
 
     int update(Product product);
+
+    //前台展示
+    void fill(List<Category> cs);
+
+    void fill(Category c);
+
+    void fillByRow(List<Category> cs);
 
 }

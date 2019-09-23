@@ -79,18 +79,15 @@
                                             <img width="40px" height="40px"
                                                  src="${ctxPath}statics/img/productSingle/${oi.product.firstProductImage.id}.jpg">
                                         </td>
-
                                         <td>
                                             <a href="${ctxPath}foreproduct?pid=${oi.product.id}">
                                                 <span>${oi.product.name}</span>
                                             </a>
                                         </td>
                                         <td align="right">
-
                                             <span class="text-muted">${oi.number}个</span>
                                         </td>
                                         <td align="right">
-
                                             <span class="text-muted">单价：￥${oi.product.promotePrice}</span>
                                         </td>
 
