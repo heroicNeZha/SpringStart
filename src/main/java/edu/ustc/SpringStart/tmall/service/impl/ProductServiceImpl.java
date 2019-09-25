@@ -12,6 +12,7 @@ import edu.ustc.SpringStart.tmall.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.PrimitiveIterator;
 
@@ -87,16 +88,30 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void fill(List<Category> cs) {
-
+        for (Category c : cs) {
+            fill(c);
+        }
     }
 
     @Override
     public void fill(Category c) {
-
+        List<Product> products = list(c.getId());
+        c.setProducts(products);
     }
 
     @Override
     public void fillByRow(List<Category> cs) {
-
+        int productNumberEachRow = 8;
+        for (Category c : cs) {
+            List<Product> products =  c.getProducts();
+            List<List<Product>> productsByRow =  new ArrayList<>();
+            for (int start = 0; start < products.size(); start+=productNumberEachRow) {
+                int end = start+productNumberEachRow;
+                end = Math.min(end, products.size());
+                List<Product> productsOfEachRow =products.subList(start, end);
+                productsByRow.add(productsOfEachRow);
+            }
+            c.setProductsByRow(productsByRow);
+        }
     }
 }
