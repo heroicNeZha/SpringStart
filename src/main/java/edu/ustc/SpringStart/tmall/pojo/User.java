@@ -1,15 +1,11 @@
 package edu.ustc.SpringStart.tmall.pojo;
 
-import java.util.Date;
-
 public class User {
     private Integer id;
 
     private String name;
 
     private String password;
-
-    private Date create_time;
 
     public Integer getId() {
         return id;
@@ -33,13 +29,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
-    }
-
-    public Date getCreate_time() {
-        return create_time;
-    }
-
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
     }
 }

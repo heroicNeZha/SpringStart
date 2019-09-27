@@ -28,9 +28,9 @@ public class Order {
 
     private Date confirmDate;
 
-    private String status;
-
     private Integer uid;
+
+    private String status;
 
     //后加的字段
     private List<OrderItem> orderItems;
@@ -188,6 +188,14 @@ public class Order {
         this.confirmDate = confirmDate;
     }
 
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -196,11 +204,4 @@ public class Order {
         this.status = status == null ? null : status.trim();
     }
 
-    public Integer getUid() {
-        return uid;
-    }
-
-    public void setUid(Integer uid) {
-        this.uid = uid;
-    }
 }

@@ -58,7 +58,7 @@ public class PropertyController {
         if (property.getId() != null) {
             Property p = propertyService.get(property.getId());
             model.addAttribute("property", p);
-            Category category = categoryService.get(property.getCid());
+            Category category = categoryService.get(p.getCid());
             model.addAttribute("category", category);
         }
         return "admin/editProperty";

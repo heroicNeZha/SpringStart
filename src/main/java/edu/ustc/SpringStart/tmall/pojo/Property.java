@@ -7,8 +7,6 @@ public class Property {
 
     private String name;
 
-    private Category category;
-
     public Integer getId() {
         return id;
     }
@@ -32,6 +30,9 @@ public class Property {
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
     }
+
+    //瞬时变量
+    private Category category;
 
     public Category getCategory() {
         return category;

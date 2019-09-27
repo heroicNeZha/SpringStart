@@ -13,8 +13,8 @@
     <result column="payDate" jdbcType="TIMESTAMP" property="payDate" />
     <result column="deliveryDate" jdbcType="TIMESTAMP" property="deliveryDate" />
     <result column="confirmDate" jdbcType="TIMESTAMP" property="confirmDate" />
-    <result column="status" jdbcType="VARCHAR" property="status" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -47,7 +47,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, orderCode, address, post, receiver, mobile, userMessage, createDate, payDate, 
-    deliveryDate, confirmDate, status, uid
+    deliveryDate, confirmDate, uid, status
   </sql>
   <select id="selectByExample" parameterType="edu.ustc.SpringStart.tmall.pojo.OrderExample" resultMap="BaseResultMap">
     select
@@ -78,12 +78,12 @@
     insert into order_ (orderCode, address, post, 
       receiver, mobile, userMessage, 
       createDate, payDate, deliveryDate, 
-      confirmDate, status, uid
+      confirmDate, uid, status
       )
     values (#{orderCode,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{post,jdbcType=VARCHAR}, 
       #{receiver,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{userMessage,jdbcType=VARCHAR}, 
       #{createDate,jdbcType=TIMESTAMP}, #{payDate,jdbcType=TIMESTAMP}, #{deliveryDate,jdbcType=TIMESTAMP}, 
-      #{confirmDate,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}
+      #{confirmDate,jdbcType=TIMESTAMP}, #{uid,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="edu.ustc.SpringStart.tmall.pojo.Order" useGeneratedKeys="true">
@@ -119,11 +119,11 @@
       <if test="confirmDate != null">
         confirmDate,
       </if>
-      <if test="status != null">
-        status,
-      </if>
       <if test="uid != null">
         uid,
+      </if>
+      <if test="status != null">
+        status,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -157,11 +157,11 @@
       <if test="confirmDate != null">
         #{confirmDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=VARCHAR},
-      </if>
       <if test="uid != null">
         #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -198,11 +198,11 @@
       <if test="confirmDate != null">
         confirmDate = #{confirmDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="status != null">
-        status = #{status,jdbcType=VARCHAR},
-      </if>
       <if test="uid != null">
         uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -219,8 +219,8 @@
       payDate = #{payDate,jdbcType=TIMESTAMP},
       deliveryDate = #{deliveryDate,jdbcType=TIMESTAMP},
       confirmDate = #{confirmDate,jdbcType=TIMESTAMP},
-      status = #{status,jdbcType=VARCHAR},
-      uid = #{uid,jdbcType=INTEGER}
+      uid = #{uid,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

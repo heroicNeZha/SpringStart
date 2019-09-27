@@ -5,8 +5,8 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="subTitle" jdbcType="VARCHAR" property="subTitle" />
-    <result column="originalPrice" jdbcType="DECIMAL" property="originalPrice" />
-    <result column="promotePrice" jdbcType="DECIMAL" property="promotePrice" />
+    <result column="originalPrice" jdbcType="REAL" property="originalPrice" />
+    <result column="promotePrice" jdbcType="REAL" property="promotePrice" />
     <result column="stock" jdbcType="INTEGER" property="stock" />
     <result column="cid" jdbcType="INTEGER" property="cid" />
     <result column="createDate" jdbcType="TIMESTAMP" property="createDate" />
@@ -72,8 +72,8 @@
     insert into product (name, subTitle, originalPrice, 
       promotePrice, stock, cid, 
       createDate)
-    values (#{name,jdbcType=VARCHAR}, #{subTitle,jdbcType=VARCHAR}, #{originalPrice,jdbcType=DECIMAL}, 
-      #{promotePrice,jdbcType=DECIMAL}, #{stock,jdbcType=INTEGER}, #{cid,jdbcType=INTEGER}, 
+    values (#{name,jdbcType=VARCHAR}, #{subTitle,jdbcType=VARCHAR}, #{originalPrice,jdbcType=REAL}, 
+      #{promotePrice,jdbcType=REAL}, #{stock,jdbcType=INTEGER}, #{cid,jdbcType=INTEGER}, 
       #{createDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="edu.ustc.SpringStart.tmall.pojo.Product" useGeneratedKeys="true">
@@ -109,10 +109,10 @@
         #{subTitle,jdbcType=VARCHAR},
       </if>
       <if test="originalPrice != null">
-        #{originalPrice,jdbcType=DECIMAL},
+        #{originalPrice,jdbcType=REAL},
       </if>
       <if test="promotePrice != null">
-        #{promotePrice,jdbcType=DECIMAL},
+        #{promotePrice,jdbcType=REAL},
       </if>
       <if test="stock != null">
         #{stock,jdbcType=INTEGER},
@@ -135,10 +135,10 @@
         subTitle = #{subTitle,jdbcType=VARCHAR},
       </if>
       <if test="originalPrice != null">
-        originalPrice = #{originalPrice,jdbcType=DECIMAL},
+        originalPrice = #{originalPrice,jdbcType=REAL},
       </if>
       <if test="promotePrice != null">
-        promotePrice = #{promotePrice,jdbcType=DECIMAL},
+        promotePrice = #{promotePrice,jdbcType=REAL},
       </if>
       <if test="stock != null">
         stock = #{stock,jdbcType=INTEGER},
@@ -156,8 +156,8 @@
     update product
     set name = #{name,jdbcType=VARCHAR},
       subTitle = #{subTitle,jdbcType=VARCHAR},
-      originalPrice = #{originalPrice,jdbcType=DECIMAL},
-      promotePrice = #{promotePrice,jdbcType=DECIMAL},
+      originalPrice = #{originalPrice,jdbcType=REAL},
+      promotePrice = #{promotePrice,jdbcType=REAL},
       stock = #{stock,jdbcType=INTEGER},
       cid = #{cid,jdbcType=INTEGER},
       createDate = #{createDate,jdbcType=TIMESTAMP}

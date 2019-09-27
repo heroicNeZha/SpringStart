@@ -9,35 +9,15 @@ public class Product {
 
     private String subTitle;
 
-    private Long originalPrice;
+    private Float originalPrice;
 
-    private Long promotePrice;
+    private Float promotePrice;
 
     private Integer stock;
 
     private Integer cid;
 
     private Date createDate;
-
-    private Category category;
-
-    private ProductImage firstProductImage;
-
-    public ProductImage getFirstProductImage() {
-        return firstProductImage;
-    }
-
-    public void setFirstProductImage(ProductImage firstProductImage) {
-        this.firstProductImage = firstProductImage;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
 
     public Integer getId() {
         return id;
@@ -63,19 +43,19 @@ public class Product {
         this.subTitle = subTitle == null ? null : subTitle.trim();
     }
 
-    public Long getOriginalPrice() {
+    public Float getOriginalPrice() {
         return originalPrice;
     }
 
-    public void setOriginalPrice(Long originalPrice) {
+    public void setOriginalPrice(Float originalPrice) {
         this.originalPrice = originalPrice;
     }
 
-    public Long getPromotePrice() {
+    public Float getPromotePrice() {
         return promotePrice;
     }
 
-    public void setPromotePrice(Long promotePrice) {
+    public void setPromotePrice(Float promotePrice) {
         this.promotePrice = promotePrice;
     }
 
@@ -102,4 +82,27 @@ public class Product {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
+
+    //后加字段
+
+    private Category category;
+
+    private ProductImage firstProductImage;
+
+    public ProductImage getFirstProductImage() {
+        return firstProductImage;
+    }
+
+    public void setFirstProductImage(ProductImage firstProductImage) {
+        this.firstProductImage = firstProductImage;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
 }

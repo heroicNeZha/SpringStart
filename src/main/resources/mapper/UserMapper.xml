@@ -5,7 +5,6 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -37,7 +36,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, password, create_time
+    id, name, password
   </sql>
   <select id="selectByExample" parameterType="edu.ustc.SpringStart.tmall.pojo.UserExample" resultMap="BaseResultMap">
     select
@@ -65,10 +64,8 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="edu.ustc.SpringStart.tmall.pojo.User" useGeneratedKeys="true">
-    insert into user (name, password, create_time
-      )
-    values (#{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP}
-      )
+    insert into user (name, password)
+    values (#{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="edu.ustc.SpringStart.tmall.pojo.User" useGeneratedKeys="true">
     insert into user
@@ -79,9 +76,6 @@
       <if test="password != null">
         password,
       </if>
-      <if test="create_time != null">
-        create_time,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="name != null">
@@ -89,9 +83,6 @@
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="create_time != null">
-        #{create_time,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -104,17 +95,13 @@
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="create_time != null">
-        create_time = #{create_time,jdbcType=TIMESTAMP},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="edu.ustc.SpringStart.tmall.pojo.User">
     update user
     set name = #{name,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      create_time = #{create_time,jdbcType=TIMESTAMP}
+      password = #{password,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -6,8 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 
 <c:if test="${empty param.categorycount}">
     <c:set var="categorycount" scope="page" value="100"/>
@@ -26,8 +25,9 @@
                 <br>
                 <c:forEach items="${c.products}" var="p" varStatus="st">
                     <c:if test="${st.count<=5}">
-                        <div class="productItem" >
-                            <a href="foreproduct?pid=${p.id}"><img width="100px" src="img/productSingle_middle/${p.firstProductImage.id}.jpg"></a>
+                        <div class="productItem">
+                            <a href="foreproduct?pid=${p.id}"><img width="100px"
+                                                                   src="img/productSingle_middle/${p.firstProductImage.id}.jpg"></a>
                             <a class="productItemDescLink" href="foreproduct?pid=${p.id}">
                                 <span class="productItemDesc">[热销]
                                 ${fn:substring(p.name, 0, 20)}
