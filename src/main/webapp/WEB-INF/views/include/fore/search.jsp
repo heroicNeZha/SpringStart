@@ -31,5 +31,3 @@
         </div>
     </div>
 </form>
-双击选中所有代码
-步骤 6 : homePage.jsp

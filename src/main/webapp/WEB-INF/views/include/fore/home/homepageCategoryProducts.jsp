@@ -17,7 +17,7 @@
 </c:if>
 
 <div class="homepageCategoryProducts">
-    <c:forEach items="${cs}" var="c" varStatus="stc">
+    <c:forEach items="${categories}" var="c" varStatus="stc">
         <c:if test="${stc.count<=categorycount}">
             <div class="eachHomepageCategoryProducts">
                 <div class="left-mark"></div>
