@@ -16,12 +16,14 @@ public class PageController {
     public String registerSuccessPage() {
         return "fore/registerSuccess";
     }
+
     @RequestMapping("loginPage")
     public String loginPage() {
         return "fore/login";
     }
+
     @RequestMapping("forealipay")
-    public String alipay(){
+    public String alipay() {
         return "fore/alipay";
     }
 }

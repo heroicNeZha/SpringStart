@@ -43,7 +43,7 @@
     })
 </script>
 
-<form method="post" action="foreregister" class="registerForm">
+<form method="post" action="${ctxPath}register" class="registerForm">
 
     <div class="registerDiv">
         <div class="registerErrorMessageDiv">
