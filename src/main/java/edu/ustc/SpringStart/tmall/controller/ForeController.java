@@ -36,7 +36,7 @@ public class ForeController {
     public String register(Model model, User user) {
         user.setName(HtmlUtils.htmlEscape(user.getName()));
         if (userService.isExist(user.getName())) {
-            String m = "用户名已经被使用,不能使用";
+            String m = "用户名已经被使用！";
             model.addAttribute("msg", m);
             model.addAttribute("user", null);
             return "redirect:registerPage";
