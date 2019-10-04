@@ -46,4 +46,17 @@ public class ForeController {
         }
     }
 
+    @RequestMapping("forelogin")
+    public String login(Model model, User user) {
+        user.setName(HtmlUtils.htmlEscape(user.getName()));
+        User aUser = userService.get(user.getName(), user.getPassword());
+        if (null != aUser) {
+            model.addAttribute("user", aUser);
+            return "redirect:home";
+        }else{
+            model.addAttribute("msg", "用户名密码错误");
+            return "fore/login";
+        }
+    }
+
 }
