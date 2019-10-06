@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.HtmlUtils;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -47,16 +48,22 @@ public class ForeController {
     }
 
     @RequestMapping("forelogin")
-    public String login(Model model, User user) {
+    public String login(Model model, User user, HttpSession session) {
         user.setName(HtmlUtils.htmlEscape(user.getName()));
         User aUser = userService.get(user.getName(), user.getPassword());
         if (null != aUser) {
-            model.addAttribute("user", aUser);
+            session.setAttribute("user", aUser);
             return "redirect:home";
         }else{
             model.addAttribute("msg", "用户名密码错误");
             return "fore/login";
         }
+    }
+
+    @RequestMapping("forelogout")
+    public String logout(HttpSession session) {
+            session.removeAttribute("user");
+            return "redirect:home";
     }
 
 }
