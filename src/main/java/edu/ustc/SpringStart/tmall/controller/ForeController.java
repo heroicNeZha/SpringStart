@@ -1,5 +1,6 @@
 package edu.ustc.SpringStart.tmall.controller;
 
+import com.alibaba.druid.stat.TableStat;
 import edu.ustc.SpringStart.tmall.pojo.Category;
 import edu.ustc.SpringStart.tmall.pojo.User;
 import edu.ustc.SpringStart.tmall.service.CategoryService;
@@ -54,7 +55,7 @@ public class ForeController {
         if (null != aUser) {
             session.setAttribute("user", aUser);
             return "redirect:home";
-        }else{
+        } else {
             model.addAttribute("msg", "用户名密码错误");
             return "fore/login";
         }
@@ -62,8 +63,12 @@ public class ForeController {
 
     @RequestMapping("forelogout")
     public String logout(HttpSession session) {
-            session.removeAttribute("user");
-            return "redirect:home";
+        session.removeAttribute("user");
+        return "redirect:home";
     }
 
+    @RequestMapping("foreproduct")
+    public String product(Model model, int pid) {
+        return "fore/product";
+    }
 }
