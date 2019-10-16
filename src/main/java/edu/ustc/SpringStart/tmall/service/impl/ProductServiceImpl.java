@@ -3,12 +3,11 @@ package edu.ustc.SpringStart.tmall.service.impl;
 import edu.ustc.SpringStart.tmall.mapper.CategoryMapper;
 import edu.ustc.SpringStart.tmall.mapper.ProductImageMapper;
 import edu.ustc.SpringStart.tmall.mapper.ProductMapper;
-import edu.ustc.SpringStart.tmall.pojo.Category;
-import edu.ustc.SpringStart.tmall.pojo.Product;
-import edu.ustc.SpringStart.tmall.pojo.ProductExample;
-import edu.ustc.SpringStart.tmall.pojo.ProductImage;
+import edu.ustc.SpringStart.tmall.pojo.*;
+import edu.ustc.SpringStart.tmall.service.OrderItemService;
 import edu.ustc.SpringStart.tmall.service.ProductImageService;
 import edu.ustc.SpringStart.tmall.service.ProductService;
+import edu.ustc.SpringStart.tmall.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +24,10 @@ public class ProductServiceImpl implements ProductService {
     CategoryMapper categoryMappers;
     @Autowired
     ProductImageService productImageService;
+    @Autowired
+    OrderItemService orderItemService;
+    @Autowired
+    ReviewService reviewService;
 
 
     @Override
@@ -103,15 +106,29 @@ public class ProductServiceImpl implements ProductService {
     public void fillByRow(List<Category> cs) {
         int productNumberEachRow = 8;
         for (Category c : cs) {
-            List<Product> products =  c.getProducts();
-            List<List<Product>> productsByRow =  new ArrayList<>();
-            for (int start = 0; start < products.size(); start+=productNumberEachRow) {
-                int end = start+productNumberEachRow;
+            List<Product> products = c.getProducts();
+            List<List<Product>> productsByRow = new ArrayList<>();
+            for (int start = 0; start < products.size(); start += productNumberEachRow) {
+                int end = start + productNumberEachRow;
                 end = Math.min(end, products.size());
-                List<Product> productsOfEachRow =products.subList(start, end);
+                List<Product> productsOfEachRow = products.subList(start, end);
                 productsByRow.add(productsOfEachRow);
             }
             c.setProductsByRow(productsByRow);
+        }
+    }
+
+    @Override
+    public void setSaleAndReviewNumber(Product p) {
+        p.setSaleCount(orderItemService.getSaleCount(p.getId()));
+
+        p.setReviewCount(reviewService.getCount(p.getId()));
+    }
+
+    @Override
+    public void setSaleAndReviewNumber(List<Product> ps) {
+        for (Product product : ps) {
+            setSaleAndReviewNumber(product);
         }
     }
 }

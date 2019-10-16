@@ -52,4 +52,15 @@ public class Review {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
+
+    //后加字段
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

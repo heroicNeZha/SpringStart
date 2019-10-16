@@ -82,4 +82,20 @@ public class OrderItemServiceImpl implements OrderItemService {
     private void setProduct(OrderItem orderItem) {
         orderItem.setProduct(productService.get(orderItem.getPid()));
     }
+
+    //前端
+
+    public int getSaleCount(int pid) {
+        OrderItemExample example = new OrderItemExample();
+        example.createCriteria().andPidEqualTo(pid);
+        example.setOrderByClause("id desc");
+
+        List<OrderItem> orderItems = orderItemMapper.selectByExample(example);
+        int result = 0;
+        for (OrderItem o : orderItems) {
+            result += o.getNumber();
+        }
+
+        return result;
+    }
 }
