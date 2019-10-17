@@ -2,6 +2,7 @@ package edu.ustc.SpringStart.tmall.service;
 
 import edu.ustc.SpringStart.tmall.pojo.Category;
 import edu.ustc.SpringStart.tmall.pojo.Product;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

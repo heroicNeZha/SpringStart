@@ -27,7 +27,7 @@
 
     <div class="productDetailImagesPart">
         <c:forEach items="${product.productDetailImages}" var="pi">
-            <img src="${ctxPath}productDetail/${pi.id}.jpg">
+            <img src="${ctxPath}statics/img/productDetail/${pi.id}.jpg">
         </c:forEach>
     </div>
 </div>

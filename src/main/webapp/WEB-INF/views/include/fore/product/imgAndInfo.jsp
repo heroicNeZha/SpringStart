@@ -140,10 +140,10 @@
 <div class="imgAndInfo">
 
     <div class="imgInimgAndInfo">
-        <img src="${ctxPath}productSingle/${product.firstProductImage.id}.jpg" class="bigImg">
+        <img src="${ctxPath}statics/img/productSingle/${product.firstProductImage.id}.jpg" class="bigImg">
         <div class="smallImageDiv">
             <c:forEach items="${product.productSingleImages}" var="pi">
-                <img src="${ctxPath}productSingle_small/${pi.id}.jpg" bigImageURL="${ctxPath}productSingle/${pi.id}.jpg"
+                <img src="${ctxPath}statics/img/productSingle_small/${pi.id}.jpg" bigImageURL="${ctxPath}statics/img/productSingle/${pi.id}.jpg"
                      class="smallImage">
             </c:forEach>
         </div>
@@ -165,7 +165,7 @@
                 <span>此商品即将参加聚划算，<span class="juhuasuanTime">1天19小时</span>后开始，</span>
             </div>
             <div class="productPriceDiv">
-                <div class="gouwujuanDiv"><img height="16px" src="${ctxPath}site/gouwujuan.png">
+                <div class="gouwujuanDiv"><img height="16px" src="${ctxPath}statics/img/site/gouwujuan.png">
                     <span> 全天猫实物商品通用</span>
 
                 </div>
@@ -181,7 +181,7 @@
                     <span class="promotionPriceDesc">促销价 </span>
                     <span class="promotionPriceYuan">¥</span>
                     <span class="promotionPrice">
-                        <fmt:formatNumber type="number" value="${prpduct.promotePrice}" minFractionDigits="2"/>
+                        <fmt:formatNumber type="number" value="${product.promotePrice}" minFractionDigits="2"/>
                     </span>
                 </div>
             </div>
@@ -199,14 +199,14 @@
                 <span class="arrow">
                     <a href="#nowhere" class="increaseNumber">
                     <span class="updown">
-                            <img src="${ctxPath}site/increase.png">
+                            <img src="${ctxPath}statics/img/site/increase.png">
                     </span>
                     </a>
 
                     <span class="updownMiddle"> </span>
                     <a href="#nowhere" class="decreaseNumber">
                     <span class="updown">
-                            <img src="${ctxPath}site/decrease.png">
+                            <img src="${ctxPath}statics/img/site/decrease.png">
                     </span>
                     </a>
 

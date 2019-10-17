@@ -7,9 +7,11 @@ import edu.ustc.SpringStart.tmall.pojo.User;
 import edu.ustc.SpringStart.tmall.service.ReviewService;
 import edu.ustc.SpringStart.tmall.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ReviewServiceImpl implements ReviewService {
     @Autowired
     ReviewMapper reviewMapper;
